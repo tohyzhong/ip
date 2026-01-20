@@ -65,6 +65,9 @@ public class Gigachad {
                             throw new InvalidParameterException("Error: Please enter a task number.");
                         } else if (tasks.size() < 1) {
                             throw new GigachadException("There are no tasks.");
+                        } else if (Integer.parseInt(userInputArray[1]) > tasks.size()) {
+                            throw new InvalidParameterException(
+                                    "Error: Please enter a valid task number between 1 and " + tasks.size());
                         }
 
                         System.out.println(String.format("%s\n\t%s\n%s",
@@ -80,6 +83,9 @@ public class Gigachad {
                             throw new InvalidParameterException("Error: Please enter a task number.");
                         } else if (tasks.size() < 1) {
                             throw new GigachadException("There are no tasks.");
+                        } else if (Integer.parseInt(userInputArray[1]) > tasks.size()) {
+                            throw new InvalidParameterException(
+                                    "Error: Please enter a valid task number between 1 and " + tasks.size());
                         }
 
                         System.out.println(String.format("%s\n\t%s\n%s",
@@ -150,6 +156,9 @@ public class Gigachad {
                             throw new InvalidParameterException("Error: Please enter a task number.");
                         } else if (tasks.size() < 1) {
                             throw new GigachadException("There are no tasks.");
+                        } else if (Integer.parseInt(userInputArray[1]) > tasks.size()) {
+                            throw new InvalidParameterException(
+                                    "Error: Please enter a valid task number between 1 and " + tasks.size());
                         }
 
                         System.out.println(String.format("%s\nNoted. I've removed this task:\n\t%s",
@@ -165,12 +174,6 @@ public class Gigachad {
                 System.out.println(String.format("%s\n\t%s\n%s",
                         horizontalString,
                         "Error: Please enter a valid task number.",
-                        horizontalString));
-            } catch (IndexOutOfBoundsException err) {
-                System.out.println(String.format("%s\n\t%s %d (inclusive).\n%s",
-                        horizontalString,
-                        "Error: Please enter a valid task number between 1 and",
-                        tasks.size(),
                         horizontalString));
             } catch (InvalidParameterException err) {
                 System.out.println(String.format("%s\n\t%s\n%s",

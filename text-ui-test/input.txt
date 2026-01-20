@@ -1,0 +1,28 @@
+list
+todo
+list
+todo Test1
+list
+deadline
+deadline Test2
+deadline Test2 /by Mon
+list
+event
+event Test3
+event Test3 /from Wed 3pm
+event Test3 /from Wed 3pm to 4pm
+event Test3 /from Wed 3pm /to 4pm
+list
+mark
+mark 4
+mark -1
+mark 0
+mark 3
+list
+unmark -1
+unmark 3
+list
+delete 3
+list
+exit
+bye

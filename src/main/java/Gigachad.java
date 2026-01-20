@@ -29,6 +29,7 @@ public class Gigachad {
         while (true) {
             System.out.print("\nEnter a command or task to add: ");
             userInput = scanner.nextLine();
+            System.out.println();
             Command cmd = Command.getCommand(userInput);
 
             try {
@@ -65,7 +66,8 @@ public class Gigachad {
                             throw new InvalidParameterException("Error: Please enter a task number.");
                         } else if (tasks.size() < 1) {
                             throw new GigachadException("There are no tasks.");
-                        } else if (Integer.parseInt(userInputArray[1]) > tasks.size()) {
+                        } else if (Integer.parseInt(userInputArray[1]) > tasks.size()
+                                || Integer.parseInt(userInputArray[1]) < 1) {
                             throw new InvalidParameterException(
                                     "Error: Please enter a valid task number between 1 and " + tasks.size());
                         }
@@ -83,7 +85,8 @@ public class Gigachad {
                             throw new InvalidParameterException("Error: Please enter a task number.");
                         } else if (tasks.size() < 1) {
                             throw new GigachadException("There are no tasks.");
-                        } else if (Integer.parseInt(userInputArray[1]) > tasks.size()) {
+                        } else if (Integer.parseInt(userInputArray[1]) > tasks.size()
+                                || Integer.parseInt(userInputArray[1]) < 1) {
                             throw new InvalidParameterException(
                                     "Error: Please enter a valid task number between 1 and " + tasks.size());
                         }

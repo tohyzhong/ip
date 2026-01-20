@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Gigachad {
     public enum Command {
-        BYE, LIST, ADD;
+        BYE, LIST, ADD, MARK, UNMARK;
 
         public static Command getCommand(String userInput) {
             try {
@@ -51,7 +51,22 @@ public class Gigachad {
 
                 case ADD:
                     tasks.add(new Task(userInput));
-                    System.out.println(String.format("%s\n\tadded: %s\n%s", horizontalString, userInput, horizontalString));
+                    System.out.println(String.format("%s\n\tadded: %s\n%s",
+                            horizontalString, userInput, horizontalString));
+                    break;
+
+                case MARK:
+                    System.out.println(String.format("%s\n\t%s\n%s",
+                            horizontalString,
+                            tasks.get(Integer.parseInt(userInput.split(" ")[1]) - 1).setDone(),
+                            horizontalString));
+                    break;
+                
+                case UNMARK:
+                    System.out.println(String.format("%s\n\t%s\n%s",
+                            horizontalString,
+                            tasks.get(Integer.parseInt(userInput.split(" ")[1]) - 1).setNotDone(),
+                            horizontalString));
                     break;
             }
         }

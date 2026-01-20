@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Gigachad {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        ArrayList<String> tasks = new ArrayList<String>();
+        ArrayList<Task> tasks = new ArrayList<Task>();
         String horizontalString = "\t____________________________________________________________";
         String name = "Gigachad";
         System.out.println(String.format("%s\n\tHello! I'm %s.\n\tWhat can I do for you?\n%s",
@@ -13,7 +13,7 @@ public class Gigachad {
         // Echo Loop
         String userInput = "";
         while (true) {
-            System.out.print("\nEnter a command (bye, list) or task to add: ");
+            System.out.print("\nEnter a command or task to add: ");
             userInput = scanner.nextLine();
             if (userInput.toLowerCase().equals("bye")) {
                 break;
@@ -23,13 +23,14 @@ public class Gigachad {
                     System.out.println("There are no tasks!");
                 } else {
                     System.out.println(horizontalString);
+                    System.out.println("\tHere are the tasks in your list:");
                     for (int i = 0; i < numTasks; i++) {
                         System.out.println(String.format("\t%d. %s", i + 1, tasks.get(i)));
                     }
                     System.out.println(horizontalString);
                 }
             } else {
-                tasks.add(userInput);
+                tasks.add(new Task(userInput));
                 System.out.println(String.format("%s\n\tadded: %s\n%s", horizontalString, userInput, horizontalString));
             }
         }

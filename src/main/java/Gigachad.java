@@ -2,6 +2,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Gigachad {
+    public enum Command {
+        BYE, LIST, ADD;
+
+        public static Command getCommand(String userInput) {
+            try {
+                return Command.valueOf(userInput.split(" ")[0].toUpperCase());
+            } catch (IllegalArgumentException err) {
+                return ADD;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Task> tasks = new ArrayList<Task>();
@@ -15,27 +27,33 @@ public class Gigachad {
         while (true) {
             System.out.print("\nEnter a command or task to add: ");
             userInput = scanner.nextLine();
-            if (userInput.toLowerCase().equals("bye")) {
-                break;
-            } else if (userInput.toLowerCase().equals("list")) {
-                int numTasks = tasks.size();
-                if (numTasks == 0) {
-                    System.out.println("There are no tasks!");
-                } else {
-                    System.out.println(horizontalString);
-                    System.out.println("\tHere are the tasks in your list:");
-                    for (int i = 0; i < numTasks; i++) {
-                        System.out.println(String.format("\t%d. %s", i + 1, tasks.get(i)));
+            Command cmd = Command.getCommand(userInput);
+
+            switch (cmd) {
+                case BYE:
+                    System.out.println(String.format("%s\n\tBye. Hope to see you again soon!\n%s", horizontalString, horizontalString));
+                    scanner.close();
+                    return;
+
+                case LIST:
+                    int numTasks = tasks.size();
+                    if (numTasks == 0) {
+                        System.out.println("There are no tasks!");
+                    } else {
+                        System.out.println(horizontalString);
+                        System.out.println("\tHere are the tasks in your list:");
+                        for (int i = 0; i < numTasks; i++) {
+                            System.out.println(String.format("\t%d. %s", i + 1, tasks.get(i)));
+                        }
+                        System.out.println(horizontalString);
                     }
-                    System.out.println(horizontalString);
-                }
-            } else {
-                tasks.add(new Task(userInput));
-                System.out.println(String.format("%s\n\tadded: %s\n%s", horizontalString, userInput, horizontalString));
+                    break;
+
+                case ADD:
+                    tasks.add(new Task(userInput));
+                    System.out.println(String.format("%s\n\tadded: %s\n%s", horizontalString, userInput, horizontalString));
+                    break;
             }
         }
-        
-        System.out.println(String.format("%s\n\tBye. Hope to see you again soon!\n%s", horizontalString, horizontalString));
-        scanner.close();
     }
 }

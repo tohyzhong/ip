@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Gigachad {
     public enum Command {
-        BYE, LIST, ERROR, MARK, UNMARK, TODO, DEADLINE, EVENT;
+        BYE, LIST, ERROR, MARK, UNMARK, TODO, DEADLINE, EVENT, DELETE;
 
         public static Command getCommand(String userInput) {
             try {
@@ -142,6 +142,23 @@ public class Gigachad {
                                 horizontalString, task.toString()));
                         System.out.println(String.format("\tNow you have %d tasks in the list.\n%s",
                                 tasks.size(), horizontalString));
+                        break;
+
+                    case DELETE:
+                        userInputArray = userInput.split(" ");
+                        if (userInputArray.length < 2) {
+                            throw new InvalidParameterException("Error: Please enter a task number.");
+                        } else if (tasks.size() < 1) {
+                            throw new GigachadException("There are no tasks.");
+                        }
+
+                        System.out.println(String.format("%s\nNoted. I've removed this task:\n\t%s",
+                                horizontalString,
+                                tasks.remove(Integer.parseInt(userInputArray[1]) - 1).toString()));
+
+                        System.out.println(String.format("\tNow you have %d tasks in the list.\n%s",
+                                tasks.size(), horizontalString));
+
                         break;
                 }
             } catch (NumberFormatException err) {

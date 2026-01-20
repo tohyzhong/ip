@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 public class Gigachad {
     public enum Command {
-        BYE, LIST, ADD, MARK, UNMARK, TODO, DEADLINE, EVENT;
+        BYE, LIST, ERROR, MARK, UNMARK, TODO, DEADLINE, EVENT;
 
         public static Command getCommand(String userInput) {
             try {
                 return Command.valueOf(userInput.split(" ")[0].toUpperCase());
             } catch (IllegalArgumentException err) {
-                return ADD;
+                return ERROR;
             }
         }
     }
@@ -52,27 +52,93 @@ public class Gigachad {
                     }
                     break;
 
-                case ADD:
-                    tasks.add(new Task(userInput));
-                    System.out.println(String.format("%s\n\tadded: %s\n%s",
-                            horizontalString, userInput, horizontalString));
+                case ERROR:
+                    System.out.println(String.format("%s\n\t%s\n%s",
+                            horizontalString,
+                            "Unknown command. Please try again.",
+                            horizontalString));
                     break;
 
                 case MARK:
-                    System.out.println(String.format("%s\n\t%s\n%s",
-                            horizontalString,
-                            tasks.get(Integer.parseInt(userInput.split(" ")[1]) - 1).setDone(),
-                            horizontalString));
+                    userInputArray = userInput.split(" ");
+                    if (userInputArray.length < 2) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Please enter a task number.",
+                                horizontalString));
+                        break;
+                    } else if (tasks.size() < 1) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: There are no tasks.",
+                                horizontalString));
+                        break;
+                    }
+
+                    try {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                tasks.get(Integer.parseInt(userInputArray[1]) - 1).setDone(),
+                                horizontalString));
+                    } catch (NumberFormatException err) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Please enter a valid task number.",
+                                horizontalString));
+                    } catch (IndexOutOfBoundsException err) {
+                        System.out.println(String.format("%s\n\t%s %d (inclusive).\n%s",
+                                horizontalString,
+                                "Error: Please enter a valid task number between 1 and",
+                                tasks.size(),
+                                horizontalString));
+                    }
+
                     break;
 
                 case UNMARK:
-                    System.out.println(String.format("%s\n\t%s\n%s",
-                            horizontalString,
-                            tasks.get(Integer.parseInt(userInput.split(" ")[1]) - 1).setNotDone(),
-                            horizontalString));
+                    userInputArray = userInput.split(" ");
+                    if (userInputArray.length < 2) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Please enter a task number.",
+                                horizontalString));
+                        break;
+                    } else if (tasks.size() < 1) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: There are no tasks.",
+                                horizontalString));
+                        break;
+                    }
+
+                    try {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                tasks.get(Integer.parseInt(userInputArray[1]) - 1).setNotDone(),
+                                horizontalString));
+                    } catch (NumberFormatException err) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Please enter a valid task number.",
+                                horizontalString));
+                    } catch (IndexOutOfBoundsException err) {
+                        System.out.println(String.format("%s\n\t%s %d (inclusive).\n%s",
+                                horizontalString,
+                                "Error: Please enter a valid task number between 1 and",
+                                tasks.size(),
+                                horizontalString));
+                    }
                     break;
 
                 case TODO:
+                    if (userInput.length() <= 5) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Please enter a task name.",
+                                horizontalString));
+                        break;
+                    }
+
                     userInput = userInput.substring(5);
                     tasks.add(new ToDo(userInput));
                     task = tasks.get(tasks.size() - 1);
@@ -83,8 +149,25 @@ public class Gigachad {
                     break;
 
                 case DEADLINE:
+                    if (userInput.length() <= 9) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Please enter a task name.",
+                                horizontalString));
+                        break;
+                    }
+
                     userInput = userInput.substring(9);
                     userInputArray = userInput.split("\\s+/by\\s+");
+
+                    if (userInputArray.length < 2) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Command parameters are missing. Do you have /by ?",
+                                horizontalString));
+                        break;
+                    }
+
                     tasks.add(new Deadline(userInputArray[0], userInputArray[1]));
                     task = tasks.get(tasks.size() - 1);
                     System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s",
@@ -94,8 +177,25 @@ public class Gigachad {
                     break;
 
                 case EVENT:
+                    if (userInput.length() <= 6) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Please enter a task name.",
+                                horizontalString));
+                        break;
+                    }
+
                     userInput = userInput.substring(6);
                     userInputArray = userInput.split("\\s+/(from|to)\\s+");
+
+                    if (userInputArray.length < 3) {
+                        System.out.println(String.format("%s\n\t%s\n%s",
+                                horizontalString,
+                                "Error: Command parameters are missing. Do you have /from and /to ?",
+                                horizontalString));
+                        break;
+                    }
+
                     tasks.add(new Event(userInputArray[0], userInputArray[1], userInputArray[2]));
                     task = tasks.get(tasks.size() - 1);
                     System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s",

@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Gigachad {
     public enum Command {
-        BYE, LIST, ADD, MARK, UNMARK, TODO, DEADLINE;
+        BYE, LIST, ADD, MARK, UNMARK, TODO, DEADLINE, EVENT;
 
         public static Command getCommand(String userInput) {
             try {
@@ -24,6 +24,7 @@ public class Gigachad {
 
         // Echo Loop
         String userInput = "";
+        String[] userInputArray;
         Task task;
         while (true) {
             System.out.print("\nEnter a command or task to add: ");
@@ -75,17 +76,32 @@ public class Gigachad {
                     userInput = userInput.substring(5);
                     tasks.add(new ToDo(userInput));
                     task = tasks.get(tasks.size() - 1);
-                    System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s\n%s",
-                            horizontalString, task.toString(), horizontalString));
+                    System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s",
+                            horizontalString, task.toString()));
+                    System.out.println(String.format("\tNow you have %d tasks in the list.\n%s",
+                            tasks.size(), horizontalString));
                     break;
 
                 case DEADLINE:
                     userInput = userInput.substring(9);
-                    String[] userInputArray = userInput.split(" /by ");
+                    userInputArray = userInput.split("\\s+/by\\s+");
                     tasks.add(new Deadline(userInputArray[0], userInputArray[1]));
                     task = tasks.get(tasks.size() - 1);
-                    System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s\n%s",
-                            horizontalString, task.toString(), horizontalString));
+                    System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s",
+                            horizontalString, task.toString()));
+                    System.out.println(String.format("\tNow you have %d tasks in the list.\n%s",
+                            tasks.size(), horizontalString));
+                    break;
+
+                case EVENT:
+                    userInput = userInput.substring(6);
+                    userInputArray = userInput.split("\\s+/(from|to)\\s+");
+                    tasks.add(new Event(userInputArray[0], userInputArray[1], userInputArray[2]));
+                    task = tasks.get(tasks.size() - 1);
+                    System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s",
+                            horizontalString, task.toString()));
+                    System.out.println(String.format("\tNow you have %d tasks in the list.\n%s",
+                            tasks.size(), horizontalString));
                     break;
             }
         }

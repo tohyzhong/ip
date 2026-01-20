@@ -31,7 +31,8 @@ public class Gigachad {
 
             switch (cmd) {
                 case BYE:
-                    System.out.println(String.format("%s\n\tBye. Hope to see you again soon!\n%s", horizontalString, horizontalString));
+                    System.out.println(String.format("%s\n\tBye. Hope to see you again soon!\n%s",
+                            horizontalString, horizontalString));
                     scanner.close();
                     return;
 

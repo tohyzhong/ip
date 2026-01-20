@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Gigachad {
     public enum Command {
-        BYE, LIST, ADD, MARK, UNMARK, TODO;
+        BYE, LIST, ADD, MARK, UNMARK, TODO, DEADLINE;
 
         public static Command getCommand(String userInput) {
             try {
@@ -24,6 +24,7 @@ public class Gigachad {
 
         // Echo Loop
         String userInput = "";
+        Task task;
         while (true) {
             System.out.print("\nEnter a command or task to add: ");
             userInput = scanner.nextLine();
@@ -73,8 +74,18 @@ public class Gigachad {
                 case TODO:
                     userInput = userInput.substring(5);
                     tasks.add(new ToDo(userInput));
-                    System.out.println(String.format("%s\n\tadded: %s\n%s",
-                            horizontalString, userInput, horizontalString));
+                    task = tasks.get(tasks.size() - 1);
+                    System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s\n%s",
+                            horizontalString, task.toString(), horizontalString));
+                    break;
+
+                case DEADLINE:
+                    userInput = userInput.substring(9);
+                    String[] userInputArray = userInput.split(" /by ");
+                    tasks.add(new Deadline(userInputArray[0], userInputArray[1]));
+                    task = tasks.get(tasks.size() - 1);
+                    System.out.println(String.format("%s\n\tGot it. I've added this task: \n\t\t%s\n%s",
+                            horizontalString, task.toString(), horizontalString));
                     break;
             }
         }

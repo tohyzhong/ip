@@ -1,3 +1,5 @@
+package patrick.tasks;
+
 public class Event extends Task {
     private String fromString;
     private String toString;

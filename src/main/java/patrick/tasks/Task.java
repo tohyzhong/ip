@@ -1,3 +1,5 @@
+package patrick.tasks;
+
 public class Task {
     protected String description;
     protected boolean isDone;
@@ -9,12 +11,12 @@ public class Task {
 
     public String setDone() {
         this.isDone = true;
-        return String.format("Nice! I've marked this task as done:\n\t\t%s", this.toString());
+        return String.format("Nice! I've marked this task as done:\n\t%s", this.toString());
     }
 
     public String setNotDone() {
         this.isDone = false;
-        return String.format("OK, I've marked this task as not done yet:\n\t\t%s", this.toString());
+        return String.format("OK, I've marked this task as not done yet:\n\t%s", this.toString());
     }
 
     public String toString() {

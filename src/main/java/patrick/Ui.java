@@ -1,0 +1,42 @@
+package patrick;
+
+import java.util.Scanner;
+
+public class Ui {
+    private static final String HORIZONTAL_LINE = "\t____________________________________________________________";
+    private static final String BOT_NAME = "P4Tr1CK";
+    private Scanner scanner;
+
+    public Ui() {
+        this.scanner = new Scanner(System.in);
+    }
+
+    public void display(String str) {
+        System.out.println(Ui.HORIZONTAL_LINE);
+        str = str.replace("\n", "\n\t");
+        System.out.println("\t" + str);
+        System.out.println(Ui.HORIZONTAL_LINE);
+    }
+
+    public void displayWelcomeMessage() {
+        this.display(String.format("Hello! I'm %s.\nWhat can I do for you?", Ui.BOT_NAME));
+    }
+
+    public void endUi() {
+        this.display("Bye. Hope to see you again soon!");
+        this.scanner.close();
+    }
+
+    public String readInput() {
+        System.out.print("\nEnter a command or task to add: ");
+        return this.scanner.nextLine();
+    }
+
+    public void displayError(String error) {
+        display("ERROR! " + error);
+    }
+
+    public void displayParamError(String error) {
+        display("Parameter Failure! " + error);
+    }
+}

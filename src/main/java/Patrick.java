@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Gigachad {
+public class Patrick {
     public enum Command {
         BYE, LIST, ERROR, MARK, UNMARK, TODO, DEADLINE, EVENT, DELETE;
 
@@ -18,7 +18,7 @@ public class Gigachad {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Task> tasks = new ArrayList<Task>();
         String horizontalString = "\t____________________________________________________________";
-        String name = "Gigachad";
+        String name = "P4Tr1CK";
         System.out.println(String.format("%s\n\tHello! I'm %s.\n\tWhat can I do for you?\n%s",
                 horizontalString, name, horizontalString));
 

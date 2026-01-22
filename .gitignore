@@ -17,3 +17,7 @@ bin/
 text-ui-test/EXPECTED-UNIX.TXT
 
 *.class
+.prettierrc
+node_modules
+package-lock.json
+package.json

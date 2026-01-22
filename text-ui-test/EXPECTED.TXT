@@ -1,5 +1,5 @@
 	____________________________________________________________
-	Hello! I'm Gigachad.
+	Hello! I'm P4Tr1CK.
 	What can I do for you?
 	____________________________________________________________
 
@@ -10,7 +10,7 @@ Enter a command or task to add:
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Please enter a task name.
+	Parameter Failure! Please enter a task name.
 	____________________________________________________________
 
 Enter a command or task to add: 
@@ -28,17 +28,17 @@ Enter a command or task to add:
 Enter a command or task to add: 
 	____________________________________________________________
 	Here are the tasks in your list:
-	1. [T][ ] Test1
+		1. [T][ ] Test1
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Please enter a task name.
+	Parameter Failure! Please enter a task name.
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Command parameters are missing. Do you have /by ?
+	Parameter Failure! Command parameters are missing. Do you have /by ?
 	____________________________________________________________
 
 Enter a command or task to add: 
@@ -51,28 +51,28 @@ Enter a command or task to add:
 Enter a command or task to add: 
 	____________________________________________________________
 	Here are the tasks in your list:
-	1. [T][ ] Test1
-	2. [D][ ] Test2 (by: Mon)
+		1. [T][ ] Test1
+		2. [D][ ] Test2 (by: Mon)
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Please enter a task name.
+	Parameter Failure! Please enter a task name.
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Command parameters are missing. Do you have /from and /to ?
+	Parameter Failure! Command parameters are missing. Do you have /from and /to ?
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Command parameters are missing. Do you have /from and /to ?
+	Parameter Failure! Command parameters are missing. Do you have /from and /to ?
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Command parameters are missing. Do you have /from and /to ?
+	Parameter Failure! Command parameters are missing. Do you have /from and /to ?
 	____________________________________________________________
 
 Enter a command or task to add: 
@@ -85,29 +85,29 @@ Enter a command or task to add:
 Enter a command or task to add: 
 	____________________________________________________________
 	Here are the tasks in your list:
-	1. [T][ ] Test1
-	2. [D][ ] Test2 (by: Mon)
-	3. [E][ ] Test3 (from: Wed 3pm to: 4pm)
+		1. [T][ ] Test1
+		2. [D][ ] Test2 (by: Mon)
+		3. [E][ ] Test3 (from: Wed 3pm to: 4pm)
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Please enter a task number.
+	Parameter Failure! Please enter a task number.
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Please enter a valid task number between 1 and 3
+	Parameter Failure! Please enter a valid task number between 1 and 3
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Please enter a valid task number between 1 and 3
+	Parameter Failure! Please enter a valid task number between 1 and 3
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Please enter a valid task number between 1 and 3
+	Parameter Failure! Please enter a valid task number between 1 and 3
 	____________________________________________________________
 
 Enter a command or task to add: 
@@ -119,14 +119,14 @@ Enter a command or task to add:
 Enter a command or task to add: 
 	____________________________________________________________
 	Here are the tasks in your list:
-	1. [T][ ] Test1
-	2. [D][ ] Test2 (by: Mon)
-	3. [E][X] Test3 (from: Wed 3pm to: 4pm)
+		1. [T][ ] Test1
+		2. [D][ ] Test2 (by: Mon)
+		3. [E][X] Test3 (from: Wed 3pm to: 4pm)
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Error: Please enter a valid task number between 1 and 3
+	Parameter Failure! Please enter a valid task number between 1 and 3
 	____________________________________________________________
 
 Enter a command or task to add: 
@@ -138,28 +138,28 @@ Enter a command or task to add:
 Enter a command or task to add: 
 	____________________________________________________________
 	Here are the tasks in your list:
-	1. [T][ ] Test1
-	2. [D][ ] Test2 (by: Mon)
-	3. [E][ ] Test3 (from: Wed 3pm to: 4pm)
+		1. [T][ ] Test1
+		2. [D][ ] Test2 (by: Mon)
+		3. [E][ ] Test3 (from: Wed 3pm to: 4pm)
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-Noted. I've removed this task:
-	[E][ ] Test3 (from: Wed 3pm to: 4pm)
+	Noted. I've removed this task: 
+		[E][ ] Test3 (from: Wed 3pm to: 4pm)
 	Now you have 2 tasks in the list.
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
 	Here are the tasks in your list:
-	1. [T][ ] Test1
-	2. [D][ ] Test2 (by: Mon)
+		1. [T][ ] Test1
+		2. [D][ ] Test2 (by: Mon)
 	____________________________________________________________
 
 Enter a command or task to add: 
 	____________________________________________________________
-	Unknown command: exit
+	ERROR! Unknown command :((
 	____________________________________________________________
 
 Enter a command or task to add: 

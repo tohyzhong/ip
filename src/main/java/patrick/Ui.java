@@ -29,7 +29,10 @@ public class Ui {
 
     public String readInput() {
         System.out.print("\nEnter a command or task to add: ");
-        return this.scanner.nextLine();
+        String userInput = this.scanner.nextLine();
+        System.out.println();
+
+        return userInput;
     }
 
     public void displayError(String error) {

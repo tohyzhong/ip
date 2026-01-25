@@ -1,12 +1,13 @@
 package patrick.command;
 
+import patrick.Storage;
 import patrick.Ui;
 import patrick.exceptions.InvalidParameterException;
 import patrick.exceptions.PatrickException;
 import patrick.tasks.TaskList;
 
 public class DeleteCommand {
-    public static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
+    public static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
         String[] userInputArray;
         try {
             userInputArray = userInput.split(" ");
@@ -22,6 +23,7 @@ public class DeleteCommand {
             ui.display("Noted. I've removed this task: \n\t"
                     + tasks.deleteTask(Integer.parseInt(userInputArray[1]) - 1).toString()
                     + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
+            storage.save(tasks);
         } catch (NumberFormatException err) {
             throw new InvalidParameterException("Please enter a valid task number.");
         }

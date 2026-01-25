@@ -1,5 +1,7 @@
 package patrick.tasks;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class TaskList {
@@ -38,5 +40,51 @@ public class TaskList {
         }
 
         return str;
+    }
+
+    public String getDueTasks(LocalDate date) {
+        String str = String.format("These tasks are due on %s:",
+                date.format(DateTimeFormatter.ofPattern("d MMM yyyy")));
+        int count = 0;
+
+        for (int i = 0; i < this.getSize(); i++) {
+            Task task = this.getTask(i);
+            if (task instanceof Deadline) {
+                Deadline t = (Deadline) task;
+                if (t.getByDate().equals(date)) {
+                    count++;
+                    str = str + String.format("\n\t%d. %s", i + 1, t);
+                }
+            }
+        }
+
+        if (count == 0) {
+            return "There are no tasks due!";
+        } else {
+            return str;
+        }
+    }
+
+    public String getEventsOn(LocalDate date) {
+        String str = String.format("These events are on %s:",
+                date.format(DateTimeFormatter.ofPattern("d MMM yyyy")));
+        int count = 0;
+
+        for (int i = 0; i < this.getSize(); i++) {
+            Task task = this.getTask(i);
+            if (task instanceof Event) {
+                Event t = (Event) task;
+                if ((t.getFromDate().compareTo(date) <= 0) && (t.getToDate().compareTo(date) >= 0)) {
+                    count++;
+                    str = str + String.format("\n\t%d. %s", i + 1, t);
+                }
+            }
+        }
+
+        if (count == 0) {
+            return "There are no events!";
+        } else {
+            return str;
+        }
     }
 }

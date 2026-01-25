@@ -20,7 +20,7 @@ public class Patrick {
 
         while (!isExit) {
             try {
-                String userInput = ui.readInput();
+                String userInput = this.ui.readInput();
                 Command cmd = Command.getCommand(userInput);
                 cmd.execute(this.tasks, this.ui, userInput);
                 isExit = cmd == Command.BYE;

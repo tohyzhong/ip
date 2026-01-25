@@ -25,31 +25,32 @@ public enum Command {
 
     public void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
         switch (this) {
-            case BYE:
-                break;
-            case LIST:
-                ListCommand.execute(tasks, ui, userInput);
-                break;
-            case ERROR:
-                throw new PatrickException("Unknown command :((");
-            case MARK:
-                MarkCommand.execute(tasks, ui, userInput);
-                break;
-            case UNMARK:
-                UnmarkCommand.execute(tasks, ui, userInput);
-                break;
-            case TODO:
-                ToDoCommand.execute(tasks, ui, userInput);
-                break;
-            case DEADLINE:
-                DeadlineCommand.execute(tasks, ui, userInput);
-                break;
-            case EVENT:
-                EventCommand.execute(tasks, ui, userInput);
-                break;
-            case DELETE:
-                DeleteCommand.execute(tasks, ui, userInput);
-                break;
+        case BYE:
+            break;
+        case LIST:
+            ListCommand.execute(tasks, ui, userInput);
+            ListCommand.execute(tasks, ui, userInput);
+            break;
+        case ERROR:
+            throw new PatrickException("Unknown command :((");
+        case MARK:
+            MarkCommand.execute(tasks, ui, userInput);
+            break;
+        case UNMARK:
+            UnmarkCommand.execute(tasks, ui, userInput);
+            break;
+        case TODO:
+            ToDoCommand.execute(tasks, ui, userInput);
+            break;
+        case DEADLINE:
+            DeadlineCommand.execute(tasks, ui, userInput);
+            break;
+        case EVENT:
+            EventCommand.execute(tasks, ui, userInput);
+            break;
+        case DELETE:
+            DeleteCommand.execute(tasks, ui, userInput);
+            break;
         }
     }
 }

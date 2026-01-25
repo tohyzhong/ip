@@ -36,10 +36,10 @@ public class Ui {
     }
 
     public void displayError(String error) {
-        display("ERROR! " + error);
+        this.display("ERROR! " + error);
     }
 
     public void displayParamError(String error) {
-        display("Parameter Failure! " + error);
+        this.display("Parameter Failure! " + error);
     }
 }

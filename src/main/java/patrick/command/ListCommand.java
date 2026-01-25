@@ -1,7 +1,7 @@
 package patrick.command;
 
-import patrick.Ui;
 import patrick.tasks.TaskList;
+import patrick.ui.Ui;
 
 public class ListCommand {
     public static void execute(TaskList tasks, Ui ui, String userInput) {

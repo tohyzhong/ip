@@ -1,4 +1,4 @@
-package patrick;
+package patrick.storage;
 
 import java.io.File;
 import java.io.FileNotFoundException;

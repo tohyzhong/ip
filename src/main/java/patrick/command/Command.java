@@ -1,9 +1,9 @@
 package patrick.command;
 
-import patrick.Storage;
-import patrick.Ui;
 import patrick.exceptions.PatrickException;
+import patrick.storage.Storage;
 import patrick.tasks.TaskList;
+import patrick.ui.Ui;
 
 public enum Command {
     BYE,

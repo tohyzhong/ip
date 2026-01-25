@@ -3,7 +3,9 @@ package patrick;
 import patrick.command.Command;
 import patrick.exceptions.InvalidParameterException;
 import patrick.exceptions.PatrickException;
+import patrick.storage.Storage;
 import patrick.tasks.TaskList;
+import patrick.ui.Ui;
 
 public class Patrick {
     private TaskList tasks;

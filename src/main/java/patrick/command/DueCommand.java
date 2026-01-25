@@ -2,10 +2,10 @@ package patrick.command;
 
 import java.time.LocalDate;
 
-import patrick.Ui;
 import patrick.exceptions.InvalidParameterException;
 import patrick.exceptions.PatrickException;
 import patrick.tasks.TaskList;
+import patrick.ui.Ui;
 
 public class DueCommand {
     public static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {

@@ -1,11 +1,11 @@
 package patrick.command;
 
-import patrick.Storage;
-import patrick.Ui;
 import patrick.exceptions.InvalidParameterException;
 import patrick.exceptions.PatrickException;
+import patrick.storage.Storage;
 import patrick.tasks.Event;
 import patrick.tasks.TaskList;
+import patrick.ui.Ui;
 
 public class EventCommand {
     public static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {

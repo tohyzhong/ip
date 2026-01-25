@@ -1,4 +1,4 @@
-package patrick;
+package patrick.ui;
 
 import java.util.Scanner;
 

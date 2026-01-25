@@ -1,6 +1,6 @@
 package patrick.tasks;
 
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isDone;
 
@@ -20,7 +20,5 @@ public class Task {
     }
 
     @Override
-    public String toString() {
-        return String.format("[%s] %s", this.isDone ? "X" : " ", this.description);
-    }
+    public abstract String toString();
 }

@@ -1,4 +1,4 @@
-package patrick.tasks;
+package patrick.task;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

@@ -1,10 +1,10 @@
 package patrick.command;
 
-import patrick.exceptions.InvalidParameterException;
-import patrick.exceptions.PatrickException;
+import patrick.exception.InvalidParameterException;
+import patrick.exception.PatrickException;
 import patrick.storage.Storage;
-import patrick.tasks.TaskList;
-import patrick.tasks.ToDo;
+import patrick.task.TaskList;
+import patrick.task.ToDo;
 import patrick.ui.Ui;
 
 public class ToDoCommand {

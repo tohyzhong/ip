@@ -10,10 +10,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-import patrick.exceptions.PatrickException;
+import patrick.exception.PatrickException;
 import patrick.parser.Parser;
-import patrick.tasks.Task;
-import patrick.tasks.TaskList;
+import patrick.task.Task;
+import patrick.task.TaskList;
 
 public class Storage {
     private String filepath;

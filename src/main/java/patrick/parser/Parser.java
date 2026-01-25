@@ -1,10 +1,10 @@
 package patrick.parser;
 
-import patrick.exceptions.PatrickException;
-import patrick.tasks.Deadline;
-import patrick.tasks.Event;
-import patrick.tasks.Task;
-import patrick.tasks.ToDo;
+import patrick.exception.PatrickException;
+import patrick.task.Deadline;
+import patrick.task.Event;
+import patrick.task.Task;
+import patrick.task.ToDo;
 
 public class Parser {
     public static String getStringFromTask(Task task) {

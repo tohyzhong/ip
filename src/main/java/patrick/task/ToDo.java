@@ -1,4 +1,4 @@
-package patrick.tasks;
+package patrick.task;
 
 public class ToDo extends Task {
     public ToDo(String userInput) {

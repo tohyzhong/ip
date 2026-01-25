@@ -1,6 +1,6 @@
 package patrick.command;
 
-import patrick.tasks.TaskList;
+import patrick.task.TaskList;
 import patrick.ui.Ui;
 
 public class ListCommand {

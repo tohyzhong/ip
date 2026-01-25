@@ -1,4 +1,4 @@
-package patrick.tasks;
+package patrick.task;
 
 public abstract class Task {
     protected String description;

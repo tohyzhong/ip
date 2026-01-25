@@ -2,9 +2,9 @@ package patrick.command;
 
 import java.time.LocalDate;
 
-import patrick.exceptions.InvalidParameterException;
-import patrick.exceptions.PatrickException;
-import patrick.tasks.TaskList;
+import patrick.exception.InvalidParameterException;
+import patrick.exception.PatrickException;
+import patrick.task.TaskList;
 import patrick.ui.Ui;
 
 public class OnCommand {

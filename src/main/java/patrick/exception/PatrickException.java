@@ -1,4 +1,4 @@
-package patrick.exceptions;
+package patrick.exception;
 
 public class PatrickException extends Exception {
     public PatrickException(String message) {

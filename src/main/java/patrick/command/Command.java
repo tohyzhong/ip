@@ -1,5 +1,6 @@
 package patrick.command;
 
+import patrick.Storage;
 import patrick.Ui;
 import patrick.exceptions.PatrickException;
 import patrick.tasks.TaskList;
@@ -23,33 +24,32 @@ public enum Command {
         }
     }
 
-    public void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
+    public void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
         switch (this) {
         case BYE:
             break;
         case LIST:
             ListCommand.execute(tasks, ui, userInput);
-            ListCommand.execute(tasks, ui, userInput);
             break;
         case ERROR:
             throw new PatrickException("Unknown command :((");
         case MARK:
-            MarkCommand.execute(tasks, ui, userInput);
+            MarkCommand.execute(tasks, ui, userInput, storage);
             break;
         case UNMARK:
-            UnmarkCommand.execute(tasks, ui, userInput);
+            UnmarkCommand.execute(tasks, ui, userInput, storage);
             break;
         case TODO:
-            ToDoCommand.execute(tasks, ui, userInput);
+            ToDoCommand.execute(tasks, ui, userInput, storage);
             break;
         case DEADLINE:
-            DeadlineCommand.execute(tasks, ui, userInput);
+            DeadlineCommand.execute(tasks, ui, userInput, storage);
             break;
         case EVENT:
-            EventCommand.execute(tasks, ui, userInput);
+            EventCommand.execute(tasks, ui, userInput, storage);
             break;
         case DELETE:
-            DeleteCommand.execute(tasks, ui, userInput);
+            DeleteCommand.execute(tasks, ui, userInput, storage);
             break;
         }
     }

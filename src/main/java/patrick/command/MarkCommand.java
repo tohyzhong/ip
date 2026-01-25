@@ -1,12 +1,13 @@
 package patrick.command;
 
+import patrick.Storage;
 import patrick.Ui;
 import patrick.exceptions.InvalidParameterException;
 import patrick.exceptions.PatrickException;
 import patrick.tasks.TaskList;
 
 public class MarkCommand {
-    public static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
+    public static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
         String[] userInputArray;
         userInputArray = userInput.split(" ");
         if (userInputArray.length < 2) {
@@ -19,5 +20,6 @@ public class MarkCommand {
                     "Please enter a valid task number between 1 and " + tasks.getSize());
         }
         ui.display(tasks.getTask(Integer.parseInt(userInputArray[1]) - 1).setDone());
+        storage.save(tasks);
     }
 }

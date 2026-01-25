@@ -1,6 +1,6 @@
 package patrick.tasks;
 
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isDone;
 
@@ -19,8 +19,14 @@ public class Task {
         return String.format("OK, I've marked this task as not done yet:\n\t%s", this.toString());
     }
 
-    @Override
-    public String toString() {
-        return String.format("[%s] %s", this.isDone ? "X" : " ", this.description);
+    public boolean isDone() {
+        return this.isDone;
     }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    @Override
+    public abstract String toString();
 }

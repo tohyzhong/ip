@@ -22,9 +22,13 @@ public class DeadlineCommand {
                     "Command parameters are missing. Do you have /by ?");
         }
 
-        ui.display("Got it. I've added this task: \n\t"
-                + tasks.addTask(new Deadline(userInputArray[0], userInputArray[1])).toString()
-                + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
+        try {
+            ui.display("Got it. I've added this task: \n\t"
+                    + tasks.addTask(new Deadline(userInputArray[0], userInputArray[1])).toString()
+                    + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
+        } catch (java.time.format.DateTimeParseException e) {
+            throw new InvalidParameterException("Plase use YYYY-MM-DD.");
+        }
         storage.save(tasks);
     }
 }

@@ -14,7 +14,9 @@ public enum Command {
     TODO,
     DEADLINE,
     EVENT,
-    DELETE;
+    DELETE,
+    DUE,
+    ON;
 
     public static Command getCommand(String userInput) {
         try {
@@ -50,6 +52,12 @@ public enum Command {
             break;
         case DELETE:
             DeleteCommand.execute(tasks, ui, userInput, storage);
+            break;
+        case DUE:
+            DueCommand.execute(tasks, ui, userInput);
+            break;
+        case ON:
+            OnCommand.execute(tasks, ui, userInput);
             break;
         }
     }

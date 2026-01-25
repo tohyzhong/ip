@@ -22,9 +22,14 @@ public class EventCommand {
                     "Command parameters are missing. Do you have /from and /to ?");
         }
 
-        ui.display("Got it. I've added this task: \n\t"
-                + tasks.addTask(new Event(userInputArray[0], userInputArray[1], userInputArray[2])).toString()
-                + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
+        try {
+            ui.display("Got it. I've added this task: \n\t"
+                    + tasks.addTask(new Event(userInputArray[0], userInputArray[1], userInputArray[2])).toString()
+                    + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
+        } catch (java.time.format.DateTimeParseException e) {
+            throw new InvalidParameterException("Plase use YYYY-MM-DD.");
+        }
+
         storage.save(tasks);
     }
 }

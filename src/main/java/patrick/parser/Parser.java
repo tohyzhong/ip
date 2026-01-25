@@ -46,6 +46,8 @@ public class Parser {
             }
         } catch (ArrayIndexOutOfBoundsException err) {
             throw new PatrickException("Corrupt task string: " + taskString);
+        } catch (java.time.format.DateTimeParseException e) {
+            throw new PatrickException("Corrupt Date: " + taskString);
         }
 
         return task;

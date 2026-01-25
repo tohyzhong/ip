@@ -29,7 +29,6 @@ public enum Command {
             break;
         case LIST:
             ListCommand.execute(tasks, ui, userInput);
-            ListCommand.execute(tasks, ui, userInput);
             break;
         case ERROR:
             throw new PatrickException("Unknown command :((");

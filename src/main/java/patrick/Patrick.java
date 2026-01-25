@@ -8,10 +8,19 @@ import patrick.tasks.TaskList;
 public class Patrick {
     private TaskList tasks;
     private Ui ui;
+    private Storage storage;
+    private static final String FILEPATH = "./data/tasks.txt";
 
     public Patrick() {
-        this.tasks = new TaskList();
         this.ui = new Ui();
+
+        try {
+            this.storage = new Storage(Patrick.FILEPATH);
+            this.tasks = this.storage.load();
+        } catch (PatrickException err) {
+            this.tasks = new TaskList();
+            this.ui.displayError(err.getMessage() + "\nInitialising empty task list...");
+        }
     }
 
     public void run() {
@@ -22,7 +31,7 @@ public class Patrick {
             try {
                 String userInput = this.ui.readInput();
                 Command cmd = Command.getCommand(userInput);
-                cmd.execute(this.tasks, this.ui, userInput);
+                cmd.execute(this.tasks, this.ui, userInput, this.storage);
                 isExit = cmd == Command.BYE;
             } catch (InvalidParameterException err) {
                 this.ui.displayParamError(err.getMessage());

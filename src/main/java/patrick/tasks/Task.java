@@ -19,6 +19,14 @@ public abstract class Task {
         return String.format("OK, I've marked this task as not done yet:\n\t%s", this.toString());
     }
 
+    public boolean isDone() {
+        return this.isDone;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
     @Override
     public abstract String toString();
 }

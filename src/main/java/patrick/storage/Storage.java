@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
+import patrick.Patrick;
 import patrick.exception.PatrickException;
 import patrick.parser.Parser;
 import patrick.task.Task;
@@ -69,6 +70,8 @@ public class Storage {
             System.out.println("These tasks have been removed due to file corruption:" + corruptTaskString);
             System.out.println(String.format("%s will proceed as usual without the above tasks.", Patrick.BOT_NAME));
         }
+
+        this.save(tasks);
 
         return tasks;
     }

@@ -66,8 +66,8 @@ public class Storage {
 
         // Alert user if any corrupt Tasks skipped
         if (!("".equals(corruptTaskString))) {
-            System.out.println("These tasks have been skipped due to file corruption:" + corruptTaskString);
-            System.out.println("Patrick will proceed as usual without the above tasks.");
+            System.out.println("These tasks have been removed due to file corruption:" + corruptTaskString);
+            System.out.println(String.format("%s will proceed as usual without the above tasks.", Patrick.BOT_NAME));
         }
 
         return tasks;

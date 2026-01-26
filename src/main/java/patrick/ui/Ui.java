@@ -2,9 +2,10 @@ package patrick.ui;
 
 import java.util.Scanner;
 
+import patrick.Patrick;
+
 public class Ui {
     private static final String HORIZONTAL_LINE = "\t____________________________________________________________";
-    private static final String BOT_NAME = "P4Tr1CK";
     private Scanner scanner;
 
     public Ui() {
@@ -19,7 +20,7 @@ public class Ui {
     }
 
     public void displayWelcomeMessage() {
-        this.display(String.format("Hello! I'm %s.\nWhat can I do for you?", Ui.BOT_NAME));
+        this.display(String.format("Hello! I'm %s.\nWhat can I do for you?", Patrick.BOT_NAME));
     }
 
     public void endUi() {

@@ -8,6 +8,7 @@ import patrick.task.TaskList;
 import patrick.ui.Ui;
 
 public class Patrick {
+    public static final String BOT_NAME = "P4Tr1CK";
     private TaskList tasks;
     private Ui ui;
     private Storage storage;

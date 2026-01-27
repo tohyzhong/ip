@@ -7,6 +7,11 @@ import patrick.storage.Storage;
 import patrick.task.TaskList;
 import patrick.ui.Ui;
 
+/**
+ * The main class for Patrick.
+ * This class coordinates the interactions between the TaskList, Ui, Storage,
+ * and Command components.
+ */
 public class Patrick {
     public static final String BOT_NAME = "P4Tr1CK";
     private TaskList tasks;
@@ -14,6 +19,11 @@ public class Patrick {
     private Storage storage;
     private static final String FILEPATH = "./data/tasks.txt";
 
+    /**
+     * Initialises a new Patrick instance.
+     * Sets up the UI and attempts to load existing tasks from a local save file.
+     * If loading fails, an empty TaskList is created instead.
+     */
     public Patrick() {
         this.ui = new Ui();
 
@@ -26,6 +36,12 @@ public class Patrick {
         }
     }
 
+    /**
+     * The main program loop.
+     * A welcome message is displayed at the start, before repeatedly parsing user
+     * input and executing user given commands until the "bye" command.
+     * Class specific exceptions are handled to provide feedback through the UI.
+     */
     public void run() {
         this.ui.displayWelcomeMessage();
         boolean isExit = false;

@@ -6,10 +6,23 @@ import patrick.task.Event;
 import patrick.task.Task;
 import patrick.task.ToDo;
 
+/**
+ * Deals with making sense of user commands and saved data strings.
+ * This class provides utility methods to convert {@code Task} objects into
+ * formatted strings for storage, and to parse those saved strings back into
+ * {@code Task} objects.
+ */
 public class Parser {
+    /**
+     * Converts a {@code Task} object into a formatted string for file storage.
+     * Format: Task Type | Is Done | Task Name | <Empty>/By/From | <Empty>/To
+     * 
+     * @param task The task to be converted.
+     * @return A '|' delimited string representing the task, or empty string if task
+     *         type is unknown.
+     */
     public static String getStringFromTask(Task task) {
         boolean isDone = task.isDone();
-        // Format: Task Type | Is Done | Task Name | <Empty>/By/From | <Empty>/To
         if (task instanceof ToDo) {
             return String.format("T | %B | %s", isDone, task.getDescription());
         } else if (task instanceof Deadline) {
@@ -24,6 +37,15 @@ public class Parser {
         }
     }
 
+    /**
+     * Parses a formatted storage string into a Task object (ToDo, Deadline, or
+     * Event).
+     * 
+     * @param taskString The formatted line from the storage file.
+     * @return A {@code Task} object corresponding to the string data.
+     * @throws PatrickException If the string is corrupt, has missing fields,
+     *                          unrecognised Task type, or invalid Date format.
+     */
     public static Task parseTaskFromString(String taskString) throws PatrickException {
         // Parse string and create Task
         String[] taskStringArray = taskString.split(" \\| ");

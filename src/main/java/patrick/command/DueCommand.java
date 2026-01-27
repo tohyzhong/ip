@@ -7,8 +7,26 @@ import patrick.exception.PatrickException;
 import patrick.task.TaskList;
 import patrick.ui.Ui;
 
+/**
+ * Handles execution of due command.
+ * This class contains a single static function execute that parses user input
+ * to filter and display all Deadline tasks that are due on the provided Date.
+ */
 public class DueCommand {
-    public static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
+
+    /**
+     * Executes the due command by filtering the task list for a specific date.
+     * Expected {@code userInput} starts with "due " + Date in format "YYYY-MM-DD".
+     * 
+     * @param tasks     The list containing the current tasks that is being
+     *                  filtered.
+     * @param ui        The user interface used to display feedback to the user.
+     * @param userInput The raw user input string.
+     * @throws InvalidParameterException If the date is missing or not in YYYY-MM-DD
+     *                                   format.
+     * @throws PatrickException          If the task list is currently empty.
+     */
+    protected static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
         LocalDate date;
         String[] userInputArray;
         userInputArray = userInput.split(" ");

@@ -6,8 +6,30 @@ import patrick.storage.Storage;
 import patrick.task.TaskList;
 import patrick.ui.Ui;
 
+/**
+ * Handles execution of delete command.
+ * This class contains a single static function execute that parses user input
+ * to remove a Task based on the input index.
+ */
 public class DeleteCommand {
-    public static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
+
+    /**
+     * Executes the delete command.
+     * Expected {@code userInput} starts with "delete " + task index obtained from
+     * {@code list} command.
+     * 
+     * @param tasks     The list containing the current tasks from which the task is
+     *                  being deleted from.
+     * @param ui        The user interface used to display feedback to the user.
+     * @param userInput The raw user input string.
+     * @param storage   The storage object used to save the task list after adding
+     *                  the new deadline task.
+     * @throws InvalidParameterException If the index is missing,
+     *                                   not an integer, or out of bounds.
+     * @throws PatrickException          If the task list is empty, or saving the
+     *                                   task list fails with an error.
+     */
+    protected static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
         String[] userInputArray;
         try {
             userInputArray = userInput.split(" ");

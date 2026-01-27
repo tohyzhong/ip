@@ -16,7 +16,8 @@ public enum Command {
     EVENT,
     DELETE,
     DUE,
-    ON;
+    ON,
+    FIND;
 
     public static Command getCommand(String userInput) {
         try {
@@ -59,6 +60,8 @@ public enum Command {
         case ON:
             OnCommand.execute(tasks, ui, userInput);
             break;
+        case FIND:
+            FindCommand.execute(tasks, ui, userInput);
         }
     }
 }

@@ -7,8 +7,27 @@ import patrick.task.TaskList;
 import patrick.task.ToDo;
 import patrick.ui.Ui;
 
+/**
+ * Handles the execution of todo command.
+ * This class contains a single static function execute that parses user input
+ * to create an ToDo task with user specified task description, adds to task
+ * list, and updates storage.
+ */
 public class ToDoCommand {
-    public static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
+    /**
+     * Executes the todo command by parsing the description, adding to task list and
+     * saving to storage.
+     * Expected {@code userInput} in the format: todo <description>.
+     * 
+     * @param tasks     The list to which the new ToDo task will be added to.
+     * @param ui        The user interface used to display feedback to the user.
+     * @param userInput The raw user input string.
+     * @param storage   The storage used to save the updated task list.
+     * @throws InvalidParameterException If the name is missing.
+     * @throws PatrickException          If an error occurs while saving to the
+     *                                   file.
+     */
+    protected static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
         if (userInput.length() <= 5) {
             throw new InvalidParameterException("Please enter a task name.");
         }

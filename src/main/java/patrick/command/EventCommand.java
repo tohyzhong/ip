@@ -7,8 +7,30 @@ import patrick.task.Event;
 import patrick.task.TaskList;
 import patrick.ui.Ui;
 
+/**
+ * Handles the execution of event command.
+ * This class contains a single static function execute that parses user input
+ * to create an Event task with user specified start and end date, adds to task
+ * list, and updates storage.
+ */
 public class EventCommand {
-    public static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
+    /**
+     * Executes the event command by parsing the description, start date, end date.
+     * Expected {@code userInput} in the format: event <description> /from
+     * YYYY-MM-DD /to YYYY-MM-DD.
+     * Regex is used to extract the description, start date, and end date.
+     * 
+     * @param tasks     The list to which the new Event will be added to.
+     * @param ui        The user interface used to display feedback to the user.
+     * @param userInput The raw user input string.
+     * @param storage   The storage used to save the updated task list.
+     * @throws InvalidParameterException If the name is missing, /from or /to tags
+     *                                   are
+     *                                   missing, or if date formats are invalid.
+     * @throws PatrickException          If an error occurs while saving to the
+     *                                   file.
+     */
+    protected static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
         String[] userInputArray;
         if (userInput.length() <= 6) {
             throw new InvalidParameterException("Please enter a task name.");

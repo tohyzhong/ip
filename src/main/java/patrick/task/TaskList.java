@@ -87,4 +87,23 @@ public class TaskList {
             return str;
         }
     }
+
+    public String findTasks(String searchString) {
+        String str = "Here are the filtered tasks:";
+        int count = 0;
+
+        for (int i = 0; i < this.getSize(); i++) {
+            Task task = this.getTask(i);
+            if (task.getDescription().toLowerCase().contains(searchString.toLowerCase())) {
+                count++;
+                str = str + String.format("\n\t%d. %s", i + 1, task);
+            }
+        }
+
+        if (count == 0) {
+            return "There are no tasks matching your description!";
+        } else {
+            return str;
+        }
+    }
 }

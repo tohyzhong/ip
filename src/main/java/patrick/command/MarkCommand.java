@@ -12,6 +12,7 @@ import patrick.ui.Ui;
  * to mark a task as done, and updates storage.
  */
 public class MarkCommand {
+
     /**
      * Executes the mark command by parsing the task number and setting the task as
      * done.

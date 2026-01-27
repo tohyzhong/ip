@@ -12,6 +12,7 @@ import patrick.ui.Ui;
  * to remove a Task based on the input index.
  */
 public class DeleteCommand {
+
     /**
      * Executes the delete command.
      * Expected {@code userInput} starts with "delete " + task index obtained from

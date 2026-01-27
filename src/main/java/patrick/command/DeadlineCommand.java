@@ -13,6 +13,7 @@ import patrick.ui.Ui;
  * to create a new Deadline task.
  */
 public class DeadlineCommand {
+
     /**
      * Executes the deadline command.
      * Expected {@code userInput} starts with "deadline " + task description + "/by"

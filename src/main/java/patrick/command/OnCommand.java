@@ -14,6 +14,7 @@ import patrick.ui.Ui;
  * Date.
  */
 public class OnCommand {
+
     /**
      * Executes the on command by parsing the Date, and filtering events that fall
      * on the date.

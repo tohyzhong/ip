@@ -13,6 +13,7 @@ import patrick.task.ToDo;
  * {@code Task} objects.
  */
 public class Parser {
+
     /**
      * Converts a {@code Task} object into a formatted string for file storage.
      * Format: Task Type | Is Done | Task Name | <Empty>/By/From | <Empty>/To

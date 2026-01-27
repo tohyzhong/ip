@@ -14,6 +14,7 @@ import patrick.ui.Ui;
  * list, and updates storage.
  */
 public class EventCommand {
+
     /**
      * Executes the event command by parsing the description, start date, end date.
      * Expected {@code userInput} in the format: event <description> /from

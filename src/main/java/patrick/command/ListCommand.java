@@ -10,6 +10,7 @@ import patrick.ui.Ui;
  * interface.
  */
 public class ListCommand {
+
     /**
      * Executes the list command by getting a String representation of all tasks in
      * the task list, and output through the provided user interface.

@@ -16,9 +16,22 @@ import patrick.parser.Parser;
 import patrick.task.Task;
 import patrick.task.TaskList;
 
+/**
+ * Manages the loading and saving of the task list locally.
+ * This class handles the I/O operations, including creating directories and
+ * files, and translating from text to {@code Tasklist}, and vice-versa.
+ */
 public class Storage {
     private String filepath;
 
+    /**
+     * Initialises a Storage object and ensures the data file exists.
+     * If the specified file or path does not exist, the constructor creates them.
+     * 
+     * @param filepath The path to the save file.
+     * @throws PatrickException If the filepath is invalid or if there is an I/O
+     *                          error during file/directory creation.
+     */
     public Storage(String filepath) throws PatrickException {
         this.filepath = filepath;
         try {
@@ -41,6 +54,17 @@ public class Storage {
         }
     }
 
+    /**
+     * Loads tasks from the local save file into a {@code TaskList}.
+     * This method does a line by line read, and checks for corrupt string and
+     * formatting issues. Problematic lines are skipped and a summary of corrupt
+     * strings is presented to the user.
+     * The clean list is then saved back to the file.
+     * 
+     * @return A {@code TaskList} containing all valid tasks loaded from the save
+     *         file.
+     * @throws PatrickException if the save file cannot be found or read.
+     */
     public TaskList load() throws PatrickException {
         TaskList tasks = new TaskList();
         // Go through every line and check if format is correct
@@ -76,6 +100,15 @@ public class Storage {
         return tasks;
     }
 
+    /**
+     * Saves the current {@code Tasklist} to the local save file.
+     * Converts each task into the storage string format and writes to the save
+     * file.
+     * 
+     * @param tasks The {@code Tasklist} containing tasks to save.
+     * @throws PatrickException If saving to the local save file is met with an
+     *                          error.
+     */
     public void save(TaskList tasks) throws PatrickException {
         try {
             FileWriter fw = new FileWriter(this.filepath);

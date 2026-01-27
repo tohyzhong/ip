@@ -143,6 +143,13 @@ public class TaskList {
         }
     }
 
+    /**
+     * Filters and returns a formatted string of Tasks that contain the search
+     * string in the description.
+     * 
+     * @param searchString The string to filter by.
+     * @return A string representation of the list of matching tasks.
+     */
     public String findTasks(String searchString) {
         String str = "Here are the filtered tasks:";
         int count = 0;

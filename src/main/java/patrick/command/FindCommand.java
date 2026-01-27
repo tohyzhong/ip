@@ -5,7 +5,26 @@ import patrick.exception.PatrickException;
 import patrick.task.TaskList;
 import patrick.ui.Ui;
 
+/**
+ * Handles the execution of the find command.
+ * This class parses the user input to extract a keyword and searches for
+ * matching tasks.
+ */
 public class FindCommand {
+
+    /**
+     * Executes the find command by searching for tasks that contain the specified
+     * search string.
+     * Expected input format: find <search string>.
+     * The actual filtering logic is done in Tasklist findTasks(String).
+     * 
+     * @param tasks     The task list to search within.
+     * @param ui        The user interface to display the search results.
+     * @param userInput The raw user input string.
+     * @throws InvalidParameterException If no keyword is provided in the user
+     *                                   input.
+     * @throws PatrickException          If the task list empty.
+     */
     public static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
         String[] userInputArray;
         userInputArray = userInput.split(" ");

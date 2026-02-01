@@ -144,21 +144,29 @@ public class TaskList {
     }
 
     /**
-     * Filters and returns a formatted string of Tasks that contain the search
-     * string in the description.
+     * Filters and returns a formatted string of Tasks that contain any part of the
+     * search string in the description.
      * 
-     * @param searchString The string to filter by.
+     * @param searchStringArray The array of strings to filter by.
      * @return A string representation of the list of matching tasks.
      */
-    public String findTasks(String searchString) {
+    public String findTasks(String... searchStringArray) {
         String str = "Here are the filtered tasks:";
         int count = 0;
+        String[] searchStringArrayProcessed = new String[searchStringArray.length];
+        for (int i = 0; i < searchStringArray.length; i++) {
+            searchStringArrayProcessed[i] = searchStringArray[i].toLowerCase();
+        }
 
         for (int i = 0; i < this.getSize(); i++) {
             Task task = this.getTask(i);
-            if (task.getDescription().toLowerCase().contains(searchString.toLowerCase())) {
-                count++;
-                str = str + String.format("\n\t%d. %s", i + 1, task);
+            String description = task.getDescription().toLowerCase();
+
+            for (String searchString : searchStringArrayProcessed) {
+                if (description.contains(searchString)) {
+                    count++;
+                    str = str + String.format("\n\t%d. %s", i + 1, task);
+                }
             }
         }
 

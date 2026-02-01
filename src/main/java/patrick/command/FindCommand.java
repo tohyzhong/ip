@@ -1,5 +1,7 @@
 package patrick.command;
 
+import java.util.Arrays;
+
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
 import patrick.task.TaskList;
@@ -34,6 +36,6 @@ public class FindCommand {
             throw new PatrickException("There are no tasks.");
         }
 
-        ui.display(tasks.findTasks(userInputArray[1]));
+        ui.display(tasks.findTasks(Arrays.copyOfRange(userInputArray, 1, userInputArray.length)));
     }
 }

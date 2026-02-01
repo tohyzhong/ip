@@ -16,8 +16,8 @@ public class Parser {
 
     /**
      * Converts a {@code Task} object into a formatted string for file storage.
-     * Format: Task Type | Is Done | Task Name | <Empty>/By/From | <Empty>/To
-     * 
+     * Format: Task Type | Is Done | Task Name | Empty/By/From | Empty/To
+     *
      * @param task The task to be converted.
      * @return A '|' delimited string representing the task, or empty string if task
      *         type is unknown.
@@ -41,7 +41,7 @@ public class Parser {
     /**
      * Parses a formatted storage string into a Task object (ToDo, Deadline, or
      * Event).
-     * 
+     *
      * @param taskString The formatted line from the storage file.
      * @return A {@code Task} object corresponding to the string data.
      * @throws PatrickException If the string is corrupt, has missing fields,

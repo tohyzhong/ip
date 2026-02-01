@@ -15,7 +15,7 @@ public class Event extends Task {
     /**
      * Constructs a new Event task with the specified description, start date, and
      * end date.
-     * 
+     *
      * @param userInput  The description of the task.
      * @param fromString The specified start date YYYY-MM-DD.
      * @param toString   The specified end date YYYY-MM-DD.
@@ -29,7 +29,7 @@ public class Event extends Task {
     /**
      * Constructs a new Event task with the specified description, completion
      * status, start date, and end date.
-     * 
+     *
      * @param userInput  The description of the task.
      * @param isDone     The completion status of the task.
      * @param fromString The specified start date YYYY-MM-DD.
@@ -44,7 +44,7 @@ public class Event extends Task {
 
     /**
      * Returns the start date of the Event task.
-     * 
+     *
      * @return The {@Link LocalDate} object representing the start date.
      */
     public LocalDate getFromDate() {
@@ -53,7 +53,7 @@ public class Event extends Task {
 
     /**
      * Returns the end date of the Event task.
-     * 
+     *
      * @return The {@Link LocalDate} object representing the end date.
      */
     public LocalDate getToDate() {
@@ -64,7 +64,7 @@ public class Event extends Task {
      * Returns a string representation of the event task.
      * The output includes "[E]", the completion status, the description, and the
      * formatted from and to dates in d MMM yyyy.
-     * 
+     *
      * @return A formatted string representing the Event task.
      */
     @Override

@@ -17,10 +17,10 @@ public class EventCommand {
 
     /**
      * Executes the event command by parsing the description, start date, end date.
-     * Expected {@code userInput} in the format: event <description> /from
+     * Expected {@code userInput} in the format: event "description" /from
      * YYYY-MM-DD /to YYYY-MM-DD.
      * Regex is used to extract the description, start date, and end date.
-     * 
+     *
      * @param tasks     The list to which the new Event will be added to.
      * @param ui        The user interface used to display feedback to the user.
      * @param userInput The raw user input string.

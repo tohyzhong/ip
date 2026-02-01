@@ -20,7 +20,7 @@ public class Ui {
     /**
      * Displays a formatted message wrapped in horizontal lines.
      * This method indents multi-line strings to maintain consistent formatting.
-     * 
+     *
      * @param str The message string to be displayed.
      */
     public void display(String str) {
@@ -47,7 +47,7 @@ public class Ui {
 
     /**
      * Reads a line of text entered by the user.
-     * 
+     *
      * @return The raw string input provided by the user.
      */
     public String readInput() {
@@ -60,7 +60,7 @@ public class Ui {
 
     /**
      * Displays a general error message to the user.
-     * 
+     *
      * @param error The error message.
      */
     public void displayError(String error) {
@@ -70,7 +70,7 @@ public class Ui {
     /**
      * Displays a specific error related to command parameters.
      * This display function specifies the type of error to alert the user.
-     * 
+     *
      * @param error The parameter error detail message.
      */
     public void displayParamError(String error) {

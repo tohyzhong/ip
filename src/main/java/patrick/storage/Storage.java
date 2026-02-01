@@ -27,7 +27,7 @@ public class Storage {
     /**
      * Initialises a Storage object and ensures the data file exists.
      * If the specified file or path does not exist, the constructor creates them.
-     * 
+     *
      * @param filepath The path to the save file.
      * @throws PatrickException If the filepath is invalid or if there is an I/O
      *                          error during file/directory creation.
@@ -60,7 +60,7 @@ public class Storage {
      * formatting issues. Problematic lines are skipped and a summary of corrupt
      * strings is presented to the user.
      * The clean list is then saved back to the file.
-     * 
+     *
      * @return A {@code TaskList} containing all valid tasks loaded from the save
      *         file.
      * @throws PatrickException if the save file cannot be found or read.
@@ -104,7 +104,7 @@ public class Storage {
      * Saves the current {@code Tasklist} to the local save file.
      * Converts each task into the storage string format and writes to the save
      * file.
-     * 
+     *
      * @param tasks The {@code Tasklist} containing tasks to save.
      * @throws PatrickException If saving to the local save file is met with an
      *                          error.

@@ -21,7 +21,7 @@ public class TaskList {
 
     /**
      * Adds a task to the list and returns the added task.
-     * 
+     *
      * @param task The Task object to be added.
      * @return The task that was just added.
      */
@@ -33,7 +33,7 @@ public class TaskList {
     /**
      * Deletes a task from the list at the specified index and returns the deleted
      * task.
-     * 
+     *
      * @param index The 0-based index of the task to be deleted.
      * @return The Task object that was deleted.
      * @throws IndexOutOfBoundsException If the index is out of range.
@@ -44,7 +44,7 @@ public class TaskList {
 
     /**
      * Retrieves a task from the list at the specified index.
-     * 
+     *
      * @param index The 0-based index of the task to be retrieved.
      * @return The Task object at the specified position.
      * @throws IndexOutOfBoundsException If the index is out of range.
@@ -55,7 +55,7 @@ public class TaskList {
 
     /**
      * Returns the number of tasks currently in the list.
-     * 
+     *
      * @return The size of the task list.
      */
     public int getSize() {
@@ -66,7 +66,7 @@ public class TaskList {
      * Returns a formatted string containing all tasks in the list.
      * Returns a notification message if the task list is empty.
      * Otherwise, returns a numbered list of all tasks.
-     * 
+     *
      * @return A formatted message representing the task list.
      */
     public String getAllTasks() {
@@ -86,7 +86,7 @@ public class TaskList {
     /**
      * Filters and returns a formatted string of Deadline tasks due on a specified
      * Date.
-     * 
+     *
      * @param date The date to filter by.
      * @return A string containing the list of Deadline tasks matching the date.
      */
@@ -116,7 +116,7 @@ public class TaskList {
     /**
      * Filters and returns a formatted string of Event tasks occurring on the
      * specified date.
-     * 
+     *
      * @param date The date to filter by.
      * @return A string representation of the list of events on the date.
      */
@@ -146,7 +146,7 @@ public class TaskList {
     /**
      * Filters and returns a formatted string of Tasks that contain the search
      * string in the description.
-     * 
+     *
      * @param searchString The string to filter by.
      * @return A string representation of the list of matching tasks.
      */

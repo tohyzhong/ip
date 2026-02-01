@@ -16,8 +16,8 @@ public class UnmarkCommand {
     /**
      * Executes the unmark command by parsing the task number and setting the task
      * as not done.
-     * Expected {@code userInput} in the format: unmark <task number>.
-     * 
+     * Expected {@code userInput} in the format: unmark "task number".
+     *
      * @param tasks     The list that contains the task to be marked not done.
      * @param ui        The user interface used to display feedback to the user.
      * @param userInput The raw user input string.

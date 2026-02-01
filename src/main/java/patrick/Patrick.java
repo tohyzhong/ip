@@ -14,10 +14,10 @@ import patrick.ui.Ui;
  */
 public class Patrick {
     public static final String BOT_NAME = "P4Tr1CK";
+    private static final String FILEPATH = "./data/tasks.txt";
     private TaskList tasks;
     private Ui ui;
     private Storage storage;
-    private static final String FILEPATH = "./data/tasks.txt";
 
     /**
      * Initialises a new Patrick instance.

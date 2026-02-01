@@ -17,9 +17,9 @@ public class FindCommand {
     /**
      * Executes the find command by searching for tasks that contain the specified
      * search string.
-     * Expected input format: find <search string>.
+     * Expected input format: find "search string".
      * The actual filtering logic is done in Tasklist findTasks(String).
-     * 
+     *
      * @param tasks     The task list to search within.
      * @param ui        The user interface to display the search results.
      * @param userInput The raw user input string.

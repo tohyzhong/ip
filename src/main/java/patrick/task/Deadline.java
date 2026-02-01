@@ -13,7 +13,7 @@ public class Deadline extends Task {
 
     /**
      * Constructs a new Deadline task with the specified description and due date.
-     * 
+     *
      * @param userInput      The description of the task.
      * @param datetimeString The specified due date YYYY-MM-DD.
      */
@@ -25,7 +25,7 @@ public class Deadline extends Task {
     /**
      * Constructs a new Deadline task with the specified description, completion
      * status, and due date.
-     * 
+     *
      * @param userInput      The description of the task.
      * @param isDone         The completion status of the task.
      * @param datetimeString The specified due date YYYY-MM-DD.
@@ -38,7 +38,7 @@ public class Deadline extends Task {
 
     /**
      * Returns the due date of the Deadline task.
-     * 
+     *
      * @return The {@Link LocalDate} object representing the deadline.
      */
     public LocalDate getByDate() {
@@ -49,7 +49,7 @@ public class Deadline extends Task {
      * Returns a string representation of the deadline task.
      * The output includes "[D]", the completion status, the description, and the
      * formatted date in d MMM yyyy.
-     * 
+     *
      * @return A formatted string representing the Deadline task.
      */
     @Override

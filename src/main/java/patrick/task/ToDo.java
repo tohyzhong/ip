@@ -8,7 +8,7 @@ public class ToDo extends Task {
     /**
      * Constructs a ToDo task with given description.
      * The completion status defaults to false.
-     * 
+     *
      * @param userInput The task description.
      */
     public ToDo(String userInput) {
@@ -17,7 +17,7 @@ public class ToDo extends Task {
 
     /**
      * Constructs a ToDo task with given description and completion status.
-     * 
+     *
      * @param userInput The task description.
      * @param isDone    The completion status of the task (true if done, false
      *                  otherwise).
@@ -30,7 +30,7 @@ public class ToDo extends Task {
     /**
      * Returns a string representation of the ToDo task.
      * The format includes "[T]", the completion status, and the task description.
-     * 
+     *
      * @return A formatted string representing the ToDo task.
      */
     @Override

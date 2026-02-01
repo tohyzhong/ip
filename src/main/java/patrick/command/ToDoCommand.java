@@ -18,8 +18,8 @@ public class ToDoCommand {
     /**
      * Executes the todo command by parsing the description, adding to task list and
      * saving to storage.
-     * Expected {@code userInput} in the format: todo <description>.
-     * 
+     * Expected {@code userInput} in the format: todo "description".
+     *
      * @param tasks     The list to which the new ToDo task will be added to.
      * @param ui        The user interface used to display feedback to the user.
      * @param userInput The raw user input string.

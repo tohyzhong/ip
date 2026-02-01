@@ -19,7 +19,7 @@ public class OnCommand {
      * Executes the on command by parsing the Date, and filtering events that fall
      * on the date.
      * Expected {@code userInput} in the format: on YYYY-MM-DD.
-     * 
+     *
      * @param tasks     The list that is being filtered using the provided date.
      * @param ui        The user interface used to display feedback to the user.
      * @param userInput The raw user input string.

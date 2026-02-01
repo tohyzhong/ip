@@ -27,7 +27,7 @@ public enum Command {
      * Parses user input string and returns corresponding Command.
      * First term of input string is extracted and matched against pre-defined
      * Command enums (case-insensitive).
-     * 
+     *
      * @param userInput The raw user input string.
      * @return The matching {@code Command} constant, or {@code ERROR} for invalid
      *         commands.
@@ -43,7 +43,7 @@ public enum Command {
     /**
      * Executes the logic for the corresponding command.
      * Dispatcher method to call relevant Command method based on the enum constant.
-     * 
+     *
      * @param tasks     The list containing the current tasks.
      * @param ui        The user interface object for displaying output.
      * @param userInput The raw user input string.
@@ -88,6 +88,9 @@ public enum Command {
             break;
         case FIND:
             FindCommand.execute(tasks, ui, userInput);
+            break;
+        default:
+            throw new PatrickException("Unknown command :((");
         }
     }
 }

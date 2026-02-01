@@ -17,7 +17,7 @@ public class DeleteCommand {
      * Executes the delete command.
      * Expected {@code userInput} starts with "delete " + task index obtained from
      * {@code list} command.
-     * 
+     *
      * @param tasks     The list containing the current tasks from which the task is
      *                  being deleted from.
      * @param ui        The user interface used to display feedback to the user.

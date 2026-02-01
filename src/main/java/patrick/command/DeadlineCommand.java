@@ -18,7 +18,7 @@ public class DeadlineCommand {
      * Executes the deadline command.
      * Expected {@code userInput} starts with "deadline " + task description + "/by"
      * delimiter with date in format YYYY-MM-DD.
-     * 
+     *
      * @param tasks     The list containing the current tasks to which the new
      *                  deadline task is being added to.
      * @param ui        The user interface used to display feedback to the user.

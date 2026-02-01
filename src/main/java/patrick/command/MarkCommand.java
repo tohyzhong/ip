@@ -16,8 +16,8 @@ public class MarkCommand {
     /**
      * Executes the mark command by parsing the task number and setting the task as
      * done.
-     * Expected {@code userInput} in the format: mark <task number>.
-     * 
+     * Expected {@code userInput} in the format: mark "task number".
+     *
      * @param tasks     The list that contains the task to be marked done.
      * @param ui        The user interface used to display feedback to the user.
      * @param userInput The raw user input string.

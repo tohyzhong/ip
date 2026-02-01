@@ -14,7 +14,7 @@ public class ListCommand {
     /**
      * Executes the list command by getting a String representation of all tasks in
      * the task list, and output through the provided user interface.
-     * 
+     *
      * @param tasks     The list of existing tasks.
      * @param ui        The user interface used to display the task list.
      * @param userInput The raw user input string.

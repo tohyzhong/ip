@@ -12,7 +12,7 @@ public abstract class Task {
     /**
      * Constructs a new Task with the given description. The task is initailised as
      * not done.
-     * 
+     *
      * @param description The text description of the task.
      */
     public Task(String description) {
@@ -22,7 +22,7 @@ public abstract class Task {
 
     /**
      * Marks the task as completed.
-     * 
+     *
      * @return A confirmation message including the string representation of the
      *         task.
      */
@@ -33,7 +33,7 @@ public abstract class Task {
 
     /**
      * Marks the task as not completed.
-     * 
+     *
      * @return A confirmation message including the string representation of the
      *         task.
      */
@@ -44,7 +44,7 @@ public abstract class Task {
 
     /**
      * Returns the completion status of the task.
-     * 
+     *
      * @return true if the task is done, false otherwise.
      */
     public boolean isDone() {
@@ -53,7 +53,7 @@ public abstract class Task {
 
     /**
      * Returns the description of the task.
-     * 
+     *
      * @return The task description string.
      */
     public String getDescription() {
@@ -63,7 +63,7 @@ public abstract class Task {
     /**
      * Returns a string representation of the task.
      * This method must be implemented by subclasses.
-     * 
+     *
      * @return A formatted string representing the task.
      */
     @Override

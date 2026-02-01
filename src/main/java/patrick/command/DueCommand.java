@@ -17,7 +17,7 @@ public class DueCommand {
     /**
      * Executes the due command by filtering the task list for a specific date.
      * Expected {@code userInput} starts with "due " + Date in format "YYYY-MM-DD".
-     * 
+     *
      * @param tasks     The list containing the current tasks that is being
      *                  filtered.
      * @param ui        The user interface used to display feedback to the user.

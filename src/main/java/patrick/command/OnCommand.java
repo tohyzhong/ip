@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
+import patrick.gui.MainWindow;
 import patrick.task.TaskList;
-import patrick.ui.Ui;
 
 /**
  * Handles execution of on command.
@@ -27,7 +27,7 @@ public class OnCommand {
      *                                   is invalid.
      * @throws PatrickException          If there are no tasks.
      */
-    protected static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput) throws PatrickException {
         LocalDate date;
         String[] userInputArray;
         userInputArray = userInput.split(" ");
@@ -43,6 +43,6 @@ public class OnCommand {
             throw new InvalidParameterException("Plase use YYYY-MM-DD.");
         }
 
-        ui.display(tasks.getEventsOn(date));
+        gui.display(tasks.getEventsOn(date));
     }
 }

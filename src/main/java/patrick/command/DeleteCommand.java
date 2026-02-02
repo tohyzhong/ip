@@ -2,9 +2,9 @@ package patrick.command;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.TaskList;
-import patrick.ui.Ui;
 
 /**
  * Handles execution of delete command.
@@ -29,7 +29,8 @@ public class DeleteCommand {
      * @throws PatrickException          If the task list is empty, or saving the
      *                                   task list fails with an error.
      */
-    protected static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
+            throws PatrickException {
         String[] userInputArray;
         try {
             userInputArray = userInput.split(" ");
@@ -42,7 +43,7 @@ public class DeleteCommand {
                         "Please enter a valid task number between 1 and " + tasks.getSize());
             }
 
-            ui.display("Noted. I've removed this task: \n\t"
+            gui.display("Noted. I've removed this task: \n\t"
                     + tasks.deleteTask(Integer.parseInt(userInputArray[1]) - 1).toString()
                     + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
             storage.save(tasks);

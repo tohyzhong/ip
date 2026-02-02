@@ -2,9 +2,9 @@ package patrick.command;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.TaskList;
-import patrick.ui.Ui;
 
 /**
  * Handles the execution of mark command.
@@ -28,7 +28,8 @@ public class MarkCommand {
      * @throws PatrickException          If the task list is empty or a storage
      *                                   write error occurs.
      */
-    protected static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
+            throws PatrickException {
         String[] userInputArray;
         userInputArray = userInput.split(" ");
         if (userInputArray.length < 2) {
@@ -40,7 +41,7 @@ public class MarkCommand {
             throw new InvalidParameterException(
                     "Please enter a valid task number between 1 and " + tasks.getSize());
         }
-        ui.display(tasks.getTask(Integer.parseInt(userInputArray[1]) - 1).setDone());
+        gui.display(tasks.getTask(Integer.parseInt(userInputArray[1]) - 1).setDone());
         storage.save(tasks);
     }
 }

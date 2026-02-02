@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
+import patrick.gui.MainWindow;
 import patrick.task.TaskList;
-import patrick.ui.Ui;
 
 /**
  * Handles the execution of the find command.
@@ -27,7 +27,7 @@ public class FindCommand {
      *                                   input.
      * @throws PatrickException          If the task list empty.
      */
-    public static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
+    public static void execute(TaskList tasks, MainWindow gui, String userInput) throws PatrickException {
         String[] userInputArray;
         userInputArray = userInput.split(" ");
         if (userInputArray.length < 2) {
@@ -36,6 +36,6 @@ public class FindCommand {
             throw new PatrickException("There are no tasks.");
         }
 
-        ui.display(tasks.findTasks(Arrays.copyOfRange(userInputArray, 1, userInputArray.length)));
+        gui.display(tasks.findTasks(Arrays.copyOfRange(userInputArray, 1, userInputArray.length)));
     }
 }

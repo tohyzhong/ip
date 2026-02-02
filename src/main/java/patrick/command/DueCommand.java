@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
+import patrick.gui.Main;
 import patrick.task.TaskList;
-import patrick.ui.Ui;
 
 /**
  * Handles execution of due command.
@@ -26,7 +26,7 @@ public class DueCommand {
      *                                   format.
      * @throws PatrickException          If the task list is currently empty.
      */
-    protected static void execute(TaskList tasks, Ui ui, String userInput) throws PatrickException {
+    protected static void execute(TaskList tasks, Main gui, String userInput) throws PatrickException {
         LocalDate date;
         String[] userInputArray;
         userInputArray = userInput.split(" ");
@@ -42,6 +42,6 @@ public class DueCommand {
             throw new InvalidParameterException("Plase use YYYY-MM-DD.");
         }
 
-        ui.display(tasks.getDueTasks(date));
+        gui.display(tasks.getDueTasks(date));
     }
 }

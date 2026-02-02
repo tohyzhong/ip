@@ -2,10 +2,10 @@ package patrick.command;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
+import patrick.gui.Main;
 import patrick.storage.Storage;
 import patrick.task.Event;
 import patrick.task.TaskList;
-import patrick.ui.Ui;
 
 /**
  * Handles the execution of event command.
@@ -31,7 +31,7 @@ public class EventCommand {
      * @throws PatrickException          If an error occurs while saving to the
      *                                   file.
      */
-    protected static void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
+    protected static void execute(TaskList tasks, Main gui, String userInput, Storage storage) throws PatrickException {
         String[] userInputArray;
         if (userInput.length() <= 6) {
             throw new InvalidParameterException("Please enter a task name.");
@@ -46,7 +46,7 @@ public class EventCommand {
         }
 
         try {
-            ui.display("Got it. I've added this task: \n\t"
+            gui.display("Got it. I've added this task: \n\t"
                     + tasks.addTask(new Event(userInputArray[0], userInputArray[1], userInputArray[2])).toString()
                     + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
         } catch (java.time.format.DateTimeParseException e) {

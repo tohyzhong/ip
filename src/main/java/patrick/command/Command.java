@@ -1,9 +1,9 @@
 package patrick.command;
 
 import patrick.exception.PatrickException;
+import patrick.gui.Main;
 import patrick.storage.Storage;
 import patrick.task.TaskList;
-import patrick.ui.Ui;
 
 /**
  * Represents the collection of executable commands supported by Patrick.
@@ -53,41 +53,42 @@ public enum Command {
      *                          (e.g. file read and write errors, invalid command
      *                          parameters)
      */
-    public void execute(TaskList tasks, Ui ui, String userInput, Storage storage) throws PatrickException {
+    public void execute(TaskList tasks, Main gui, String userInput, Storage storage) throws PatrickException {
         switch (this) {
         case BYE:
+            gui.endPatrick();
             break;
         case LIST:
-            ListCommand.execute(tasks, ui, userInput);
+            ListCommand.execute(tasks, gui, userInput);
             break;
         case ERROR:
             throw new PatrickException("Unknown command :((");
         case MARK:
-            MarkCommand.execute(tasks, ui, userInput, storage);
+            MarkCommand.execute(tasks, gui, userInput, storage);
             break;
         case UNMARK:
-            UnmarkCommand.execute(tasks, ui, userInput, storage);
+            UnmarkCommand.execute(tasks, gui, userInput, storage);
             break;
         case TODO:
-            ToDoCommand.execute(tasks, ui, userInput, storage);
+            ToDoCommand.execute(tasks, gui, userInput, storage);
             break;
         case DEADLINE:
-            DeadlineCommand.execute(tasks, ui, userInput, storage);
+            DeadlineCommand.execute(tasks, gui, userInput, storage);
             break;
         case EVENT:
-            EventCommand.execute(tasks, ui, userInput, storage);
+            EventCommand.execute(tasks, gui, userInput, storage);
             break;
         case DELETE:
-            DeleteCommand.execute(tasks, ui, userInput, storage);
+            DeleteCommand.execute(tasks, gui, userInput, storage);
             break;
         case DUE:
-            DueCommand.execute(tasks, ui, userInput);
+            DueCommand.execute(tasks, gui, userInput);
             break;
         case ON:
-            OnCommand.execute(tasks, ui, userInput);
+            OnCommand.execute(tasks, gui, userInput);
             break;
         case FIND:
-            FindCommand.execute(tasks, ui, userInput);
+            FindCommand.execute(tasks, gui, userInput);
             break;
         default:
             throw new PatrickException("Unknown command :((");

@@ -37,6 +37,20 @@ public class Patrick {
         return response;
     }
 
+    /**
+     * Processes the raw string input from the user and coordinates the execution of
+     * the corresponding command.
+     * This method parses the input to identify a {@code Command}, then attempts to
+     * execute it using the current task list, GUI, and storage.
+     *
+     * @param userInput The raw string entered by the user in the GUI.
+     * @param gui       THE {@code MainWindow} instance used to interact with the
+     *                  user interface.
+     * @throws InvalidParameterException If the command parameters are missing or
+     *                                   incorrectly formatted.
+     * @throws PatrickException          If other application specific errors occur
+     *                                   during command execution.
+     */
     public void handleUserInput(String userInput, MainWindow gui) {
         try {
             Command cmd = Command.getCommand(userInput);

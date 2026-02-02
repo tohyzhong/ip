@@ -16,7 +16,7 @@ public class ListCommand {
      * the task list, and output through the provided user interface.
      *
      * @param tasks     The list of existing tasks.
-     * @param ui        The user interface used to display the task list.
+     * @param gui       The user interface used to display the task list.
      * @param userInput The raw user input string.
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput) {

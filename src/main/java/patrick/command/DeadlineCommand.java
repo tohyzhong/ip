@@ -21,7 +21,7 @@ public class DeadlineCommand {
      *
      * @param tasks     The list containing the current tasks to which the new
      *                  deadline task is being added to.
-     * @param ui        The user interface used to display feedback to the user.
+     * @param gui       The user interface used to display feedback to the user.
      * @param userInput The raw user input string.
      * @param storage   The storage object used to save the task list after adding
      *                  the new deadline task.

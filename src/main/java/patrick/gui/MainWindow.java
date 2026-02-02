@@ -10,6 +10,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import patrick.Patrick;
 
+/**
+ * Controller for MainWindow. Provides the layout for other controls.
+ * This class handles the primary user interface interactions, including user
+ * input, and displaying dialogs.
+ */
 public class MainWindow extends AnchorPane {
     @FXML
     private ScrollPane scrollPane;
@@ -25,6 +30,9 @@ public class MainWindow extends AnchorPane {
 
     private Patrick patrick;
 
+    /**
+     * Sets up autoscrolling in the GUI.
+     */
     @FXML
     public void initialize() {
         this.scrollPane.vvalueProperty().bind(this.dialogContainer.heightProperty());
@@ -36,6 +44,10 @@ public class MainWindow extends AnchorPane {
         this.initPatrick();
     }
 
+    /**
+     * Captures user text, renders it in the GUI, clears the input field, and passes
+     * the raw string to the logic controller.
+     */
     @FXML
     private void handleUserInput() {
         String userText = this.userInput.getText();
@@ -45,29 +57,51 @@ public class MainWindow extends AnchorPane {
         this.patrick.handleUserInput(userText, this);
     }
 
+    /**
+     * Renders a standard response from Patrick in the dialog container.
+     *
+     * @param str The output string processed by Patrick.
+     */
     @FXML
     public void display(String str) {
         this.dialogContainer.getChildren()
                 .addAll(DialogBox.getPatrickDialog(str, this.patrickImage));
     }
 
+    /**
+     * Displays a specialised error message regarding any application errors.
+     *
+     * @param error The descriptive error message indicating what was wrong.
+     */
     @FXML
     public void displayError(String error) {
         this.dialogContainer.getChildren()
                 .addAll(DialogBox.getPatrickDialog("ERROR! " + error, this.patrickImage, true));
     }
 
+    /**
+     * Displays a specialised error message regarding invalid Parameters.
+     *
+     * @param error The descriptive error message indicating what was wrong.
+     */
     @FXML
     public void displayParamError(String error) {
         this.dialogContainer.getChildren()
                 .addAll(DialogBox.getPatrickDialog("Parameter Failure! " + error, this.patrickImage, true));
     }
 
+    /**
+     * Triggers a clean shutdown of the JavaFX App.
+     */
     @FXML
     public void endPatrick() {
         Platform.exit();
     }
 
+    /**
+     * Initiates an instance of Patrick and outputs the initialisation status and
+     * welcome message.
+     */
     @FXML
     private void initPatrick() {
         String patrickText = this.patrick.init();

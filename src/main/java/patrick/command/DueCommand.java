@@ -20,7 +20,7 @@ public class DueCommand {
      *
      * @param tasks     The list containing the current tasks that is being
      *                  filtered.
-     * @param ui        The user interface used to display feedback to the user.
+     * @param gui       The user interface used to display feedback to the user.
      * @param userInput The raw user input string.
      * @throws InvalidParameterException If the date is missing or not in YYYY-MM-DD
      *                                   format.

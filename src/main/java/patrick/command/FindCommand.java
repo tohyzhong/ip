@@ -21,7 +21,7 @@ public class FindCommand {
      * The actual filtering logic is done in Tasklist findTasks(String).
      *
      * @param tasks     The task list to search within.
-     * @param ui        The user interface to display the search results.
+     * @param gui       The user interface to display the search results.
      * @param userInput The raw user input string.
      * @throws InvalidParameterException If no keyword is provided in the user
      *                                   input.

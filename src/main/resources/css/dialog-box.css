@@ -1,0 +1,31 @@
+.label {
+    -fx-padding: 8 12 8 12;
+    -fx-text-fill: #2f4f4f;
+    -fx-font-weight: bold;
+}
+
+.user-label {
+    -fx-background-color: linear-gradient(to bottom left, #00ffbf, #00ddff);
+    -fx-background-radius: 1em 1em 0 1em;
+    -fx-border-radius: 1em 1em 0 1em;
+    -fx-border-color: #009e73;
+}
+
+.patrick-label {
+    -fx-background-color: linear-gradient(to bottom right, #ffaded, #ffc2f1);
+    -fx-background-radius: 1em 1em 1em 0;
+    -fx-border-radius: 1em 1em 1em 0;
+    -fx-border-color: #e69bd5;
+}
+
+.error-label {
+    -fx-background-color: #fff0f0 !important;
+    -fx-border-color: #ff0000 !important;
+    -fx-text-fill: #ff0000 !important;
+}
+
+.profile-circle {
+    -fx-stroke: #e69bd5;
+    -fx-stroke-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
+}

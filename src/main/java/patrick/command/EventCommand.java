@@ -2,7 +2,7 @@ package patrick.command;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.Event;
 import patrick.task.TaskList;
@@ -31,7 +31,8 @@ public class EventCommand {
      * @throws PatrickException          If an error occurs while saving to the
      *                                   file.
      */
-    protected static void execute(TaskList tasks, Main gui, String userInput, Storage storage) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
+            throws PatrickException {
         String[] userInputArray;
         if (userInput.length() <= 6) {
             throw new InvalidParameterException("Please enter a task name.");

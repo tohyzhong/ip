@@ -2,7 +2,7 @@ package patrick.command;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.TaskList;
 import patrick.task.ToDo;
@@ -28,7 +28,8 @@ public class ToDoCommand {
      * @throws PatrickException          If an error occurs while saving to the
      *                                   file.
      */
-    protected static void execute(TaskList tasks, Main gui, String userInput, Storage storage) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
+            throws PatrickException {
         if (userInput.length() <= 5) {
             throw new InvalidParameterException("Please enter a task name.");
         }

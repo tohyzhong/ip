@@ -1,7 +1,7 @@
 package patrick.command;
 
 import patrick.exception.PatrickException;
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.TaskList;
 
@@ -53,7 +53,7 @@ public enum Command {
      *                          (e.g. file read and write errors, invalid command
      *                          parameters)
      */
-    public void execute(TaskList tasks, Main gui, String userInput, Storage storage) throws PatrickException {
+    public void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage) throws PatrickException {
         switch (this) {
         case BYE:
             gui.endPatrick();

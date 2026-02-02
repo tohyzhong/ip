@@ -1,6 +1,6 @@
 package patrick.command;
 
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.task.TaskList;
 
 /**
@@ -19,7 +19,7 @@ public class ListCommand {
      * @param ui        The user interface used to display the task list.
      * @param userInput The raw user input string.
      */
-    protected static void execute(TaskList tasks, Main gui, String userInput) {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput) {
         gui.display(tasks.getAllTasks());
     }
 }

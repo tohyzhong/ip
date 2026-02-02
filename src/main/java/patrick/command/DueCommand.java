@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.task.TaskList;
 
 /**
@@ -26,7 +26,7 @@ public class DueCommand {
      *                                   format.
      * @throws PatrickException          If the task list is currently empty.
      */
-    protected static void execute(TaskList tasks, Main gui, String userInput) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput) throws PatrickException {
         LocalDate date;
         String[] userInputArray;
         userInputArray = userInput.split(" ");

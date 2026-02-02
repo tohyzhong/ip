@@ -3,7 +3,7 @@ package patrick;
 import patrick.command.Command;
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.TaskList;
 
@@ -37,7 +37,7 @@ public class Patrick {
         return response;
     }
 
-    public void handleUserInput(String userInput, Main gui) {
+    public void handleUserInput(String userInput, MainWindow gui) {
         try {
             Command cmd = Command.getCommand(userInput);
             cmd.execute(this.tasks, gui, userInput, this.storage);

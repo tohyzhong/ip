@@ -2,7 +2,7 @@ package patrick.command;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.Deadline;
 import patrick.task.TaskList;
@@ -31,7 +31,8 @@ public class DeadlineCommand {
      * @throws PatrickException          If saving the task list fails with an
      *                                   error.
      */
-    protected static void execute(TaskList tasks, Main gui, String userInput, Storage storage) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
+            throws PatrickException {
         String[] userInputArray;
         if (userInput.length() <= 9) {
             throw new InvalidParameterException("Please enter a task name.");

@@ -2,7 +2,7 @@ package patrick.command;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.TaskList;
 
@@ -28,7 +28,8 @@ public class UnmarkCommand {
      * @throws PatrickException          If the task list is empty or a storage
      *                                   write error occurs.
      */
-    protected static void execute(TaskList tasks, Main gui, String userInput, Storage storage) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
+            throws PatrickException {
         String[] userInputArray;
         userInputArray = userInput.split(" ");
         if (userInputArray.length < 2) {

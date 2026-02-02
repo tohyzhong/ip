@@ -2,7 +2,7 @@ package patrick.command;
 
 import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
-import patrick.gui.Main;
+import patrick.gui.MainWindow;
 import patrick.storage.Storage;
 import patrick.task.TaskList;
 
@@ -29,7 +29,8 @@ public class DeleteCommand {
      * @throws PatrickException          If the task list is empty, or saving the
      *                                   task list fails with an error.
      */
-    protected static void execute(TaskList tasks, Main gui, String userInput, Storage storage) throws PatrickException {
+    protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
+            throws PatrickException {
         String[] userInputArray;
         try {
             userInputArray = userInput.split(" ");

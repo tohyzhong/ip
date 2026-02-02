@@ -19,7 +19,7 @@ public class MarkCommand {
      * Expected {@code userInput} in the format: mark "task number".
      *
      * @param tasks     The list that contains the task to be marked done.
-     * @param ui        The user interface used to display feedback to the user.
+     * @param gui       The user interface used to display feedback to the user.
      * @param userInput The raw user input string.
      * @param storage   The storage used to save the updated task list.
      * @throws InvalidParameterException If the index is missing, not a valid

@@ -21,7 +21,7 @@ public class ToDoCommand {
      * Expected {@code userInput} in the format: todo "description".
      *
      * @param tasks     The list to which the new ToDo task will be added to.
-     * @param ui        The user interface used to display feedback to the user.
+     * @param gui       The user interface used to display feedback to the user.
      * @param userInput The raw user input string.
      * @param storage   The storage used to save the updated task list.
      * @throws InvalidParameterException If the name is missing.

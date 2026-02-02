@@ -45,7 +45,7 @@ public enum Command {
      * Dispatcher method to call relevant Command method based on the enum constant.
      *
      * @param tasks     The list containing the current tasks.
-     * @param ui        The user interface object for displaying output.
+     * @param gui       The user interface object for displaying output.
      * @param userInput The raw user input string.
      * @param storage   The storage object used for loading and saving changes
      *                  locally.

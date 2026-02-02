@@ -21,7 +21,7 @@ public class OnCommand {
      * Expected {@code userInput} in the format: on YYYY-MM-DD.
      *
      * @param tasks     The list that is being filtered using the provided date.
-     * @param ui        The user interface used to display feedback to the user.
+     * @param gui       The user interface used to display feedback to the user.
      * @param userInput The raw user input string.
      * @throws InvalidParameterException If the date is missing, or if date format
      *                                   is invalid.

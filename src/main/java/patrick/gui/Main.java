@@ -9,6 +9,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import patrick.Patrick;
 
+/**
+ * A GUI for Patrick using FXML.
+ * This class serves as the main entry point for the JavaFX application,
+ * responsible for loading the FXML layout, initializing the primary stage,
+ * and injecting the logic controller into the GUI.
+ */
 public class Main extends Application {
     private Patrick patrick = new Patrick();
 

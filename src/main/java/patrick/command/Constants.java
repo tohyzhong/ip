@@ -1,5 +1,8 @@
 package patrick.command;
 
+/**
+ * A class to store constant values used in command processing.
+ */
 public class Constants {
     public static final String DATE_FORMAT = "YYYY-MM-DD";
     public static final String BY_SEPARATOR = "/by";

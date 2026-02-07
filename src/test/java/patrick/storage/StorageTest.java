@@ -23,7 +23,7 @@ public class StorageTest {
 
     @Test
     public void constructor_invalidFilepath_throwsPatrickException() {
-        Assertions.assertThrowsExactly(PatrickException.class, () -> new Storage("./a\tsd"));
+        Assertions.assertThrowsExactly(PatrickException.class, () -> new Storage("./a\0sd"));
     }
 
     @Test

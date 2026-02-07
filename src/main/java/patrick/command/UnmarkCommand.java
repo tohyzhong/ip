@@ -36,12 +36,20 @@ public class UnmarkCommand {
             throw new InvalidParameterException("Please enter a task number.");
         } else if (tasks.getSize() < 1) {
             throw new PatrickException("There are no tasks.");
-        } else if (Integer.parseInt(userInputArray[1]) > tasks.getSize()
-                || Integer.parseInt(userInputArray[1]) < 1) {
+        }
+
+        int index;
+        try {
+            index = Integer.parseInt(userInputArray[1]);
+        } catch (NumberFormatException e) {
+            throw new InvalidParameterException("Please enter a valid task number.");
+        }
+
+        if (index > tasks.getSize() || index < 1) {
             throw new InvalidParameterException(
                     "Please enter a valid task number between 1 and " + tasks.getSize());
         }
-        gui.display(tasks.getTask(Integer.parseInt(userInputArray[1]) - 1).setNotDone());
+        gui.display(tasks.getTask(index - 1).setNotDone());
         storage.save(tasks);
     }
 }

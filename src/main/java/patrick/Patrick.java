@@ -46,10 +46,6 @@ public class Patrick {
      * @param userInput The raw string entered by the user in the GUI.
      * @param gui       THE {@code MainWindow} instance used to interact with the
      *                  user interface.
-     * @throws InvalidParameterException If the command parameters are missing or
-     *                                   incorrectly formatted.
-     * @throws PatrickException          If other application specific errors occur
-     *                                   during command execution.
      */
     public void handleUserInput(String userInput, MainWindow gui) {
         try {

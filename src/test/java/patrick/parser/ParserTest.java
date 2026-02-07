@@ -54,7 +54,7 @@ public class ParserTest {
     }
 
     @Test
-    public void parseTaskFromString_validEvent_returnsDeadline() throws PatrickException {
+    public void parseTaskFromString_validEvent_returnsEvent() throws PatrickException {
         String input = "E | FALSE | Scold Mr Krabs | 2026-01-27 | 2026-01-28";
         Task result = Parser.parseTaskFromString(input);
 

@@ -28,8 +28,7 @@ public class FindCommand {
      * @throws PatrickException          If the task list empty.
      */
     public static void execute(TaskList tasks, MainWindow gui, String userInput) throws PatrickException {
-        String[] userInputArray;
-        userInputArray = userInput.split(" ");
+        String[] userInputArray = userInput.split("\\s+");
         if (userInputArray.length < 2) {
             throw new InvalidParameterException("Please enter a task.");
         } else if (tasks.getSize() < 1) {

@@ -10,7 +10,7 @@ public abstract class Task {
     protected boolean isDone;
 
     /**
-     * Constructs a new Task with the given description. The task is initailised as
+     * Constructs a new Task with the given description. The task is initialised as
      * not done.
      *
      * @param description The text description of the task.

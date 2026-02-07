@@ -51,7 +51,7 @@ public class DeadlineCommand {
                     + tasks.addTask(new Deadline(userInputArray[0], userInputArray[1])).toString()
                     + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
         } catch (java.time.format.DateTimeParseException e) {
-            throw new InvalidParameterException("Plase use YYYY-MM-DD.");
+            throw new InvalidParameterException("Please use YYYY-MM-DD.");
         }
         storage.save(tasks);
     }

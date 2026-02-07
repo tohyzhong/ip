@@ -48,7 +48,7 @@ public class Storage {
                 Files.createFile(path);
             }
         } catch (IOException err) {
-            throw new PatrickException("Could not initalise task file " + filepath);
+            throw new PatrickException("Could not initialise task file " + filepath);
         } catch (InvalidPathException err) {
             throw new PatrickException("Invalid Filepath " + filepath);
         }
@@ -73,7 +73,7 @@ public class Storage {
         String corruptTaskString = "";
         try (Scanner scanner = new Scanner(file)) {
             while (true) {
-                if (scanner.hasNext()) {
+                if (scanner.hasNextLine()) {
                     String taskString = scanner.nextLine();
                     try {
                         Task task = Parser.parseTaskFromString(taskString);
@@ -90,7 +90,7 @@ public class Storage {
         }
 
         // Alert user if any corrupt Tasks skipped
-        if (!("".equals(corruptTaskString))) {
+        if (corruptTaskString.length() > 0) {
             System.out.println("These tasks have been removed due to file corruption:" + corruptTaskString);
             System.out.println(String.format("%s will proceed as usual without the above tasks.", Patrick.BOT_NAME));
         }

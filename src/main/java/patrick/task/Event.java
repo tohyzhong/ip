@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * Represent a Task with a specific start and end date.
  * Event task includes a description, start and end dates stored as
- * {@Link LocalDate}.
+ * {@code LocalDate}.
  */
 public class Event extends Task {
     private LocalDate fromDate;

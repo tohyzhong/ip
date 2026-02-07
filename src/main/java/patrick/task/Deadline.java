@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 /**
  * Represent a Task with a specific deadline.
  * Deadline task includes a description, and a due date stored as a
- * {@Link LocalDate}.
+ * {@code LocalDate}.
  */
 public class Deadline extends Task {
     private LocalDate byDate;

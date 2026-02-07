@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
- * Represents a colletion of Tasks.
+ * Represents a collection of Tasks.
  * This class provides utility methods to add, delete, retrieve, and filter
  * tasks based on specific criteria.
  */
@@ -70,17 +70,16 @@ public class TaskList {
      * @return A formatted message representing the task list.
      */
     public String getAllTasks() {
-        String str = "";
         if (this.getSize() == 0) {
-            str = "There are no tasks!";
-        } else {
-            str = "Here are the tasks in your list:";
-            for (int i = 0; i < this.getSize(); i++) {
-                str = str + String.format("\n\t%d. %s", i + 1, this.getTask(i));
-            }
+            return "There are no tasks!";
         }
 
-        return str;
+        StringBuilder sb = new StringBuilder("Here are the tasks in your list:");
+        for (int i = 0; i < this.getSize(); i++) {
+            sb.append(String.format("\n\t%d. %s", i + 1, this.getTask(i)));
+        }
+
+        return sb.toString();
     }
 
     /**
@@ -166,6 +165,7 @@ public class TaskList {
                 if (description.contains(searchString)) {
                     count++;
                     str = str + String.format("\n\t%d. %s", i + 1, task);
+                    break;
                 }
             }
         }

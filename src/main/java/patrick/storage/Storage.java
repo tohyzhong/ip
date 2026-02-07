@@ -1,14 +1,14 @@
 package patrick.storage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Scanner;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import patrick.Patrick;
 import patrick.exception.PatrickException;
@@ -67,31 +67,30 @@ public class Storage {
      */
     public TaskList load() throws PatrickException {
         TaskList tasks = new TaskList();
-        // Go through every line and check if format is correct
-        // Prompt user to enter the command (not stored format) if wrong format
-        File file = new File(this.filepath);
-        String corruptTaskString = "";
-        try (Scanner scanner = new Scanner(file)) {
-            while (true) {
-                if (scanner.hasNextLine()) {
-                    String taskString = scanner.nextLine();
-                    try {
-                        Task task = Parser.parseTaskFromString(taskString);
-                        assert task != null : "Parsed task should not be null";
-                        tasks.addTask(task);
-                    } catch (PatrickException err) {
-                        corruptTaskString = corruptTaskString + "\n\t" + err.getMessage();
-                    }
-                } else {
-                    break;
-                }
-            }
-        } catch (FileNotFoundException err) {
+        List<String> corruptMessages = new java.util.ArrayList<>();
+        try {
+            List<Task> loadedTasks = Files.lines(Paths.get(this.filepath))
+                    .map(line -> {
+                        try {
+                            Task task = Parser.parseTaskFromString(line);
+                            assert task != null : "Parsed task should not be null";
+                            return task;
+                        } catch (PatrickException err) {
+                            corruptMessages.add(err.getMessage());
+                            return null;
+                        }
+                    })
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList());
+            loadedTasks.forEach(tasks::addTask);
+        } catch (IOException err) {
             throw new PatrickException("Save file not found!");
         }
 
         // Alert user if any corrupt Tasks skipped
-        if (corruptTaskString.length() > 0) {
+        if (!corruptMessages.isEmpty()) {
+            String corruptTaskString = corruptMessages.stream()
+                    .collect(Collectors.joining("\n\t", "\n\t", ""));
             System.out.println("These tasks have been removed due to file corruption:" + corruptTaskString);
             System.out.println(String.format("%s will proceed as usual without the above tasks.", Patrick.BOT_NAME));
         }

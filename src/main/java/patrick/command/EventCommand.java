@@ -38,16 +38,18 @@ public class EventCommand {
         assert userInput != null : "User input cannot be null";
         assert storage != null : "Storage cannot be null";
         String[] userInputArray;
-        if (userInput.length() <= 6) {
+        if (userInput.length() <= Constants.EVENT_PREFIX_LENGTH) {
             throw new InvalidParameterException("Please enter a task name.");
         }
 
-        userInput = userInput.substring(6);
-        userInputArray = userInput.split("\\s+/(from|to)\\s+");
+        userInput = userInput.substring(Constants.EVENT_PREFIX_LENGTH);
+        userInputArray = userInput.split(
+                "\\s+(" + Constants.FROM_SEPARATOR.substring(1) + "|" + Constants.TO_SEPARATOR.substring(1) + ")\\s+");
 
         if (userInputArray.length < 3) {
             throw new InvalidParameterException(
-                    "Command parameters are missing. Do you have /from and /to ?");
+                    "Command parameters are missing. Do you have " + Constants.FROM_SEPARATOR + " and "
+                            + Constants.TO_SEPARATOR + " ?");
         }
 
         assert userInputArray[0] != null && !userInputArray[0].isBlank() : "Description cannot be null or blank";
@@ -59,7 +61,7 @@ public class EventCommand {
                     + tasks.addTask(new Event(userInputArray[0], userInputArray[1], userInputArray[2])).toString()
                     + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
         } catch (java.time.format.DateTimeParseException e) {
-            throw new InvalidParameterException("Please use YYYY-MM-DD.");
+            throw new InvalidParameterException("Please use " + Constants.DATE_FORMAT + ".");
         }
 
         storage.save(tasks);

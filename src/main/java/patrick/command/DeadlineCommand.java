@@ -39,16 +39,16 @@ public class DeadlineCommand {
         assert storage != null : "Storage cannot be null";
 
         String[] userInputArray;
-        if (userInput.length() <= 9) {
+        if (userInput.length() <= Constants.DEADLINE_PREFIX_LENGTH) {
             throw new InvalidParameterException("Please enter a task name.");
         }
 
-        userInput = userInput.substring(9);
-        userInputArray = userInput.split("\\s+/by\\s+");
+        userInput = userInput.substring(Constants.DEADLINE_PREFIX_LENGTH);
+        userInputArray = userInput.split("\\s+" + Constants.BY_SEPARATOR + "\\s+");
 
         if (userInputArray.length < 2) {
             throw new InvalidParameterException(
-                    "Command parameters are missing. Do you have /by ?");
+                    "Command parameters are missing. Do you have " + Constants.BY_SEPARATOR + " ?");
         }
 
         assert userInputArray[0] != null && !userInputArray[0].isBlank() : "Task description cannot be null or blank";
@@ -59,7 +59,7 @@ public class DeadlineCommand {
                     + tasks.addTask(new Deadline(userInputArray[0], userInputArray[1])).toString()
                     + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
         } catch (java.time.format.DateTimeParseException e) {
-            throw new InvalidParameterException("Please use YYYY-MM-DD.");
+            throw new InvalidParameterException("Please use " + Constants.DATE_FORMAT + ".");
         }
         storage.save(tasks);
     }

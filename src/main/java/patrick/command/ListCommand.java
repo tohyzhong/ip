@@ -20,6 +20,9 @@ public class ListCommand {
      * @param userInput The raw user input string.
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput) {
+        assert tasks != null : "TaskList cannot be null";
+        assert gui != null : "MainWindow cannot be null";
+        assert userInput != null : "User input cannot be null";
         gui.display(tasks.getAllTasks());
     }
 }

@@ -77,6 +77,7 @@ public class Storage {
                     String taskString = scanner.nextLine();
                     try {
                         Task task = Parser.parseTaskFromString(taskString);
+                        assert task != null : "Parsed task should not be null";
                         tasks.addTask(task);
                     } catch (PatrickException err) {
                         corruptTaskString = corruptTaskString + "\n\t" + err.getMessage();
@@ -95,6 +96,7 @@ public class Storage {
             System.out.println(String.format("%s will proceed as usual without the above tasks.", Patrick.BOT_NAME));
         }
 
+        assert tasks != null : "Task list should be initialised";
         this.save(tasks);
 
         return tasks;

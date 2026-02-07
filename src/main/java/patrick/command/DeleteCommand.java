@@ -31,19 +31,29 @@ public class DeleteCommand {
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
             throws PatrickException {
+        assert tasks != null : "TaskList cannot be null";
+        assert gui != null : "MainWindow cannot be null";
+        assert userInput != null : "User input cannot be null";
+        assert storage != null : "Storage cannot be null";
+
         try {
             String[] userInputArray = userInput.split(" ");
             if (userInputArray.length < 2) {
                 throw new InvalidParameterException("Please enter a task number.");
             } else if (tasks.getSize() < 1) {
                 throw new PatrickException("There are no tasks.");
-            } else if (Integer.parseInt(userInputArray[1]) > tasks.getSize()) {
+            }
+
+            assert userInputArray[1] != null : "Index string cannot be null";
+            int index = Integer.parseInt(userInputArray[1]);
+            if (index > tasks.getSize()) {
                 throw new InvalidParameterException(
                         "Please enter a valid task number between 1 and " + tasks.getSize());
             }
 
+            assert index >= 1 && index <= tasks.getSize() : "Index out of bounds";
             gui.display("Noted. I've removed this task: \n\t"
-                    + tasks.deleteTask(Integer.parseInt(userInputArray[1]) - 1).toString()
+                    + tasks.deleteTask(index - 1).toString()
                     + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));
             storage.save(tasks);
         } catch (NumberFormatException err) {

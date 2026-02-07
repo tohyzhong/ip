@@ -52,6 +52,10 @@ public class Parser {
         String[] taskStringArray = taskString.split(" \\| ");
         Task task;
 
+        if (taskStringArray.length < 3) {
+            throw new PatrickException("Corrupt task string: " + taskString);
+        }
+
         assert taskStringArray.length >= 3 : "Task string array should have at least 3 elements";
 
         try {

@@ -146,7 +146,7 @@ public class TaskList {
 
     /**
      * Filters and returns a formatted string of Tasks that contain any part of the
-     * search string in the description.
+     * search string in the description, using fuzzy matching.
      *
      * @param searchStringArray The array of strings to filter by.
      * @return A string representation of the list of matching tasks.

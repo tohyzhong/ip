@@ -30,11 +30,11 @@ public class ToDoCommand {
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
             throws PatrickException {
-        if (userInput.length() <= 5) {
+        if (userInput.length() <= Constants.TODO_PREFIX_LENGTH) {
             throw new InvalidParameterException("Please enter a task name.");
         }
 
-        userInput = userInput.substring(5);
+        userInput = userInput.substring(Constants.TODO_PREFIX_LENGTH);
         gui.display("Got it. I've added this task: \n\t"
                 + tasks.addTask(new ToDo(userInput)).toString()
                 + String.format("\nNow you have %d tasks in the list.", tasks.getSize()));

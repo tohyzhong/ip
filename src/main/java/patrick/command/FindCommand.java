@@ -36,6 +36,8 @@ public class FindCommand {
             throw new PatrickException("There are no tasks.");
         }
 
-        gui.display(tasks.findTasks(Arrays.copyOfRange(userInputArray, 1, userInputArray.length)));
+        gui.display(
+                tasks.findTasks(
+                        Arrays.copyOfRange(userInputArray, 1, userInputArray.length)));
     }
 }

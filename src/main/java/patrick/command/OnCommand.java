@@ -40,7 +40,7 @@ public class OnCommand {
         try {
             date = LocalDate.parse(userInputArray[1]);
         } catch (java.time.format.DateTimeParseException e) {
-            throw new InvalidParameterException("Plase use YYYY-MM-DD.");
+            throw new InvalidParameterException("Please use YYYY-MM-DD.");
         }
 
         gui.display(tasks.getEventsOn(date));

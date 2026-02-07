@@ -22,8 +22,8 @@ public class DeleteCommand {
      *                  being deleted from.
      * @param gui       The user interface used to display feedback to the user.
      * @param userInput The raw user input string.
-     * @param storage   The storage object used to save the task list after adding
-     *                  the new deadline task.
+     * @param storage   The storage object used to save the task list after removing
+     *                  the task.
      * @throws InvalidParameterException If the index is missing,
      *                                   not an integer, or out of bounds.
      * @throws PatrickException          If the task list is empty, or saving the
@@ -31,9 +31,8 @@ public class DeleteCommand {
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
             throws PatrickException {
-        String[] userInputArray;
         try {
-            userInputArray = userInput.split(" ");
+            String[] userInputArray = userInput.split(" ");
             if (userInputArray.length < 2) {
                 throw new InvalidParameterException("Please enter a task number.");
             } else if (tasks.getSize() < 1) {

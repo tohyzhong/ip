@@ -28,8 +28,7 @@ public class DueCommand {
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput) throws PatrickException {
         LocalDate date;
-        String[] userInputArray;
-        userInputArray = userInput.split(" ");
+        String[] userInputArray = userInput.split(" ");
         if (userInputArray.length < 2) {
             throw new InvalidParameterException("Please enter a date.");
         } else if (tasks.getSize() < 1) {

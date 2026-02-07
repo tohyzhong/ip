@@ -56,7 +56,7 @@ public class Patrick {
             Command cmd = Command.getCommand(userInput);
             cmd.execute(this.tasks, gui, userInput, this.storage);
         } catch (InvalidParameterException err) {
-            gui.displayParamError(err.getMessage());
+            gui.displayParameterError(err.getMessage());
         } catch (PatrickException err) {
             gui.displayError(err.getMessage());
         }

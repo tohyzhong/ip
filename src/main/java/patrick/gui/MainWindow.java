@@ -52,7 +52,7 @@ public class MainWindow extends AnchorPane {
     private void handleUserInput() {
         String userText = this.userInput.getText();
         this.dialogContainer.getChildren()
-                .addAll(DialogBox.getUserDialog(userText, this.userImage));
+                .addAll(DialogBox.createUserDialog(userText, this.userImage));
         this.userInput.clear();
         this.patrick.handleUserInput(userText, this);
     }
@@ -65,7 +65,7 @@ public class MainWindow extends AnchorPane {
     @FXML
     public void display(String str) {
         this.dialogContainer.getChildren()
-                .addAll(DialogBox.getPatrickDialog(str, this.patrickImage));
+                .addAll(DialogBox.createPatrickDialog(str, this.patrickImage));
     }
 
     /**
@@ -76,7 +76,7 @@ public class MainWindow extends AnchorPane {
     @FXML
     public void displayError(String error) {
         this.dialogContainer.getChildren()
-                .addAll(DialogBox.getPatrickDialog("ERROR! " + error, this.patrickImage, true));
+                .addAll(DialogBox.createPatrickDialog("ERROR! " + error, this.patrickImage, true));
     }
 
     /**
@@ -85,9 +85,9 @@ public class MainWindow extends AnchorPane {
      * @param error The descriptive error message indicating what was wrong.
      */
     @FXML
-    public void displayParamError(String error) {
+    public void displayParameterError(String error) {
         this.dialogContainer.getChildren()
-                .addAll(DialogBox.getPatrickDialog("Parameter Failure! " + error, this.patrickImage, true));
+                .addAll(DialogBox.createPatrickDialog("Parameter Failure! " + error, this.patrickImage, true));
     }
 
     /**
@@ -106,8 +106,8 @@ public class MainWindow extends AnchorPane {
     private void initPatrick() {
         String patrickText = this.patrick.init();
         this.dialogContainer.getChildren().addAll(
-                DialogBox.getPatrickDialog(patrickText, this.patrickImage),
-                DialogBox.getPatrickDialog(
+                DialogBox.createPatrickDialog(patrickText, this.patrickImage),
+                DialogBox.createPatrickDialog(
                         String.format("Hello! I'm %s.\nWhat can I do for you?", Patrick.BOT_NAME),
                         this.patrickImage));
     }

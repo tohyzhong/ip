@@ -69,7 +69,7 @@ public class DialogBox extends HBox {
      * @param img The user's profile image.
      * @return A {@code DialogBox} configured for the user.
      */
-    public static DialogBox getUserDialog(String str, Image img) {
+    public static DialogBox createUserDialog(String str, Image img) {
         var db = new DialogBox(str, img, false);
         db.dialog.getStyleClass().add("user-label");
         return db;
@@ -83,7 +83,7 @@ public class DialogBox extends HBox {
      * @param error Whether to apply the error CSS class.
      * @return A {@code DialogBox} configured for the user.
      */
-    public static DialogBox getUserDialog(String str, Image img, boolean error) {
+    public static DialogBox createUserDialog(String str, Image img, boolean error) {
         var db = new DialogBox(str, img, error);
         db.dialog.getStyleClass().add("user-label");
         return db;
@@ -96,7 +96,7 @@ public class DialogBox extends HBox {
      * @param img Patrick's profile image.
      * @return A {@code DialogBox} configured for the user.
      */
-    public static DialogBox getPatrickDialog(String str, Image img) {
+    public static DialogBox createPatrickDialog(String str, Image img) {
         var db = new DialogBox(str, img, false);
         db.flip();
         db.dialog.getStyleClass().add("patrick-label");
@@ -111,7 +111,7 @@ public class DialogBox extends HBox {
      * @param error Whether to apply the error CSS class.
      * @return A {@code DialogBox} configured for the user.
      */
-    public static DialogBox getPatrickDialog(String str, Image img, boolean error) {
+    public static DialogBox createPatrickDialog(String str, Image img, boolean error) {
         var db = new DialogBox(str, img, error);
         db.flip();
         db.dialog.getStyleClass().add("patrick-label");

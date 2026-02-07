@@ -27,6 +27,10 @@ public class DueCommand {
      * @throws PatrickException          If the task list is currently empty.
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput) throws PatrickException {
+        assert tasks != null : "TaskList cannot be null";
+        assert gui != null : "MainWindow cannot be null";
+        assert userInput != null : "User input cannot be null";
+
         LocalDate date;
         String[] userInputArray = userInput.split(" ");
         if (userInputArray.length < 2) {
@@ -35,12 +39,14 @@ public class DueCommand {
             throw new PatrickException("There are no tasks.");
         }
 
+        assert userInputArray[1] != null : "Date string cannot be null";
         try {
             date = LocalDate.parse(userInputArray[1]);
         } catch (java.time.format.DateTimeParseException e) {
             throw new InvalidParameterException("Please use " + Constants.DATE_FORMAT + ".");
         }
 
+        assert date != null : "Parsed date cannot be null";
         gui.display(tasks.getDueTasks(date));
     }
 }

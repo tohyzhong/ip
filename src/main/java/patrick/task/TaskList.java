@@ -17,6 +17,7 @@ public class TaskList {
      */
     public TaskList() {
         this.tasks = new ArrayList<Task>();
+        assert this.tasks != null : "Task list should be initialised properly";
     }
 
     /**
@@ -27,6 +28,7 @@ public class TaskList {
      */
     public Task addTask(Task task) {
         this.tasks.add(task);
+        assert this.tasks.contains(task) : "Task should be added to the list";
         return this.getTask(this.getSize() - 1);
     }
 

@@ -33,6 +33,10 @@ public class EventCommand {
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
             throws PatrickException {
+        assert tasks != null : "TaskList cannot be null";
+        assert gui != null : "MainWindow cannot be null";
+        assert userInput != null : "User input cannot be null";
+        assert storage != null : "Storage cannot be null";
         String[] userInputArray;
         if (userInput.length() <= Constants.EVENT_PREFIX_LENGTH) {
             throw new InvalidParameterException("Please enter a task name.");
@@ -47,6 +51,10 @@ public class EventCommand {
                     "Command parameters are missing. Do you have " + Constants.FROM_SEPARATOR + " and "
                             + Constants.TO_SEPARATOR + " ?");
         }
+
+        assert userInputArray[0] != null && !userInputArray[0].isBlank() : "Description cannot be null or blank";
+        assert userInputArray[1] != null : "Start date cannot be null";
+        assert userInputArray[2] != null : "End date cannot be null";
 
         try {
             gui.display("Got it. I've added this task: \n\t"

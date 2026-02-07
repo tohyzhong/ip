@@ -30,6 +30,11 @@ public class UnmarkCommand {
      */
     protected static void execute(TaskList tasks, MainWindow gui, String userInput, Storage storage)
             throws PatrickException {
+        assert tasks != null : "TaskList cannot be null";
+        assert gui != null : "MainWindow cannot be null";
+        assert userInput != null : "User input cannot be null";
+        assert storage != null : "Storage cannot be null";
+
         String[] userInputArray;
         userInputArray = userInput.split(" ");
         if (userInputArray.length < 2) {
@@ -49,6 +54,7 @@ public class UnmarkCommand {
             throw new InvalidParameterException(
                     "Please enter a valid task number between 1 and " + tasks.getSize());
         }
+        assert index >= 1 && index <= tasks.getSize() : "Index out of bounds";
         gui.display(tasks.getTask(index - 1).setNotDone());
         storage.save(tasks);
     }

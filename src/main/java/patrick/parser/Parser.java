@@ -52,6 +52,8 @@ public class Parser {
         String[] taskStringArray = taskString.split(" \\| ");
         Task task;
 
+        assert taskStringArray.length >= 3 : "Task string array should have at least 3 elements";
+
         try {
             switch (taskStringArray[0]) {
             case "T":

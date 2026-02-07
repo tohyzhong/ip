@@ -28,6 +28,10 @@ public class FindCommand {
      * @throws PatrickException          If the task list empty.
      */
     public static void execute(TaskList tasks, MainWindow gui, String userInput) throws PatrickException {
+        assert tasks != null : "TaskList cannot be null";
+        assert gui != null : "MainWindow cannot be null";
+        assert userInput != null : "User input cannot be null";
+
         String[] userInputArray = userInput.split("\\s+");
         if (userInputArray.length < 2) {
             throw new InvalidParameterException("Please enter a task.");
@@ -35,6 +39,7 @@ public class FindCommand {
             throw new PatrickException("There are no tasks.");
         }
 
+        assert userInputArray.length >= 2 : "User input array must have at least 2 elements";
         gui.display(
                 tasks.findTasks(
                         Arrays.copyOfRange(userInputArray, 1, userInputArray.length)));

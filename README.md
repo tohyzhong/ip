@@ -1,26 +1,199 @@
-# Duke project template
+# Patrick User Guide
 
-This is a project template for a greenfield Java project. It's named after the Java mascot _Duke_. Given below are instructions on how to use it.
+Patrick is a task management chatbot that helps you keep track of your todos, deadlines, and events. It provides a simple command-line interface to add, list, mark as done, delete, and search tasks.
 
-## Setting up in Intellij
+![Product Screenshot](Ui.png)
 
-Prerequisites: JDK 17, update Intellij to the most recent version.
+## Quick Start
 
-1. Open Intellij (if you are not in the welcome screen, click `File` > `Close Project` to close the existing project first)
-1. Open the project into Intellij as follows:
-   1. Click `Open`.
-   1. Select the project directory, and click `OK`.
-   1. If there are any further prompts, accept the defaults.
-1. Configure the project to use **JDK 17** (not other versions) as explained in [here](https://www.jetbrains.com/help/idea/sdk.html#set-up-jdk).<br>
-   In the same dialog, set the **Project language level** field to the `SDK default` option.
-1. After that, locate the `src/main/java/Duke.java` file, right-click it, and choose `Run Duke.main()` (if the code editor is showing compile errors, try restarting the IDE). If the setup is correct, you should see something like the below as the output:
-   ```
-   Hello from
-    ____        _        
-   |  _ \ _   _| | _____ 
-   | | | | | | | |/ / _ \
-   | |_| | |_| |   <  __/
-   |____/ \__,_|_|\_\___|
-   ```
+1. Ensure you have Java 17 or above installed.
+2. Download the latest JAR file from the releases page.
+3. Run the JAR file: `java -jar patrick.jar`
+4. Start managing your tasks!
 
-**Warning:** Keep the `src\main\java` folder as the root folder for Java files (i.e., don't rename those folders or move Java files to another folder outside of this folder path), as this is the default location some tools (e.g., Gradle) expect to find Java files.
+## Features
+
+### Adding Tasks
+
+#### Adding a Todo: `todo`
+
+Adds a simple task without any date.
+
+Example: `todo read book`
+
+Expected output:
+
+```
+Got it. I've added this task:
+[T][ ] read book
+Now you have 1 tasks in the list.
+```
+
+#### Adding a Deadline: `deadline`
+
+Adds a task with a due date.
+
+Example: `deadline submit assignment /by 2026-12-12`
+
+Expected output:
+
+```
+Got it. I've added this task:
+[D][ ] submit assignment (by: 12 Dec 2026)
+Now you have 2 tasks in the list.
+```
+
+#### Adding an Event: `event`
+
+Adds a task with a start and end date.
+
+Example: `event team meeting /from 2026-12-01 /to 2026-12-01`
+
+Expected output:
+
+```
+Got it. I've added this task:
+[E][ ] team meeting (from: 1 Dec 2026 to: 1 Dec 2026)
+Now you have 3 tasks in the list.
+```
+
+### Listing Tasks
+
+#### Listing All Tasks: `list`
+
+Displays all tasks in the list.
+
+Example: `list`
+
+Expected output:
+
+```
+Here are the tasks in your list:
+1. [T][ ] read book
+2. [D][ ] submit assignment (by: 12 Dec 2026)
+3. [E][ ] team meeting (from: 1 Dec 2026 to: 1 Dec 2026)
+```
+
+#### Listing Tasks Due On: `due`
+
+Displays tasks due on a specific date.
+
+Example: `due 2026-12-12`
+
+Expected output:
+
+```
+Tasks due on 12 Dec 2026:
+1. [D][ ] submit assignment (by: 12 Dec 2026)
+```
+
+#### Listing Tasks On: `on`
+
+Displays tasks happening on a specific date.
+
+Example: `on 2026-12-01`
+
+Expected output:
+
+```
+Tasks on 2026-12-01:
+1. [E][ ] team meeting (from: 1 Dec 2026 to: 1 Dec 2026)
+```
+
+### Managing Tasks
+
+#### Marking a Task as Done: `mark`
+
+Marks a task as completed.
+
+Example: `mark 1`
+
+Expected output:
+
+```
+Nice! I've marked this task as done:
+[T][X] read book
+```
+
+#### Unmarking a Task: `unmark`
+
+Marks a task as not done.
+
+Example: `unmark 1`
+
+Expected output:
+
+```
+OK, I've marked this task as not done yet:
+[T][ ] read book
+```
+
+#### Deleting a Task: `delete`
+
+Removes a task from the list.
+
+Example: `delete 1`
+
+Expected output:
+
+```
+Noted. I've removed this task:
+[T][X] read book
+Now you have 2 tasks in the list.
+```
+
+### Searching Tasks
+
+#### Finding Tasks: `find`
+
+Searches for tasks containing a keyword.
+
+Example: `find book`
+
+Expected output:
+
+```
+Here are the matching tasks in your list:
+1. [T][ ] read book
+```
+
+### Exiting the Application
+
+#### Bye: `bye`
+
+Exits the application.
+
+## Command Summary
+
+| Command  | Format                                        | Example                                         |
+| -------- | --------------------------------------------- | ----------------------------------------------- |
+| Todo     | `todo <description>`                          | `todo read book`                                |
+| Deadline | `deadline <description> /by <date>`           | `deadline submit assignment /by 2026-12-12`     |
+| Event    | `event <description> /from <start> /to <end>` | `event meeting /from 2026-12-01 /to 2026-12-01` |
+| List     | `list`                                        | `list`                                          |
+| Due      | `due <date>`                                  | `due 2026-12-12`                                |
+| On       | `on <date>`                                   | `on 2026-12-01`                                 |
+| Mark     | `mark <index>`                                | `mark 1`                                        |
+| Unmark   | `unmark <index>`                              | `unmark 1`                                      |
+| Delete   | `delete <index>`                              | `delete 1`                                      |
+| Find     | `find <keyword>`                              | `find book`                                     |
+| Bye      | `bye`                                         | `bye`                                           |
+
+## FAQ
+
+**Q: How do I transfer my data to another computer?**
+
+A: Copy the `data/tasks.txt` file to the same location on the new computer.
+
+**Q: What happens if I enter an invalid command?**
+
+A: Patrick will display an error message and prompt for a valid command.
+
+**Q: Can I edit tasks after adding them?**
+
+A: Currently, you can only mark/unmark or delete tasks. Editing is not supported yet.
+
+## Known Issues
+
+- Dates must be in YYYY-MM-DD format.
+- The application saves data automatically on each command that modifies the task list.

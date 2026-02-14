@@ -18,12 +18,12 @@ import patrick.task.TaskList;
  */
 public class EventCommandTest {
 
+    @TempDir
+    Path tempDir;
+
     private TaskList tasks;
     private MainWindow gui;
     private Storage storage;
-
-    @TempDir
-    Path tempDir;
 
     @BeforeEach
     public void setUp() throws PatrickException {

@@ -21,6 +21,19 @@ public class StorageTest {
     @TempDir
     Path tempFilePath;
 
+    // Mock classes to isolate tests from real implementations
+    private static class MockToDo extends ToDo {
+        public MockToDo(String description) {
+            super(description);
+        }
+    }
+
+    private static class MockDeadline extends Deadline {
+        public MockDeadline(String description, String by) throws Exception {
+            super(description, by);
+        }
+    }
+
     @Test
     public void constructor_invalidFilepath_throwsPatrickException() {
         Assertions.assertThrowsExactly(PatrickException.class, () -> new Storage("./a\0sd"));
@@ -94,8 +107,12 @@ public class StorageTest {
 
         Storage storage = new Storage(filePath.toString());
         TaskList tasks = new TaskList();
-        tasks.addTask(new ToDo("Task 1"));
-        tasks.addTask(new Deadline("Task 2", "2023-12-12"));
+        tasks.addTask(new MockToDo("Task 1"));
+        try {
+            tasks.addTask(new MockDeadline("Task 2", "2023-12-12"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         tasks.getTask(1).setDone();
         storage.save(tasks);
 

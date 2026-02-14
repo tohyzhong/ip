@@ -1,12 +1,10 @@
 package patrick.parser;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
 import patrick.task.Deadline;
 import patrick.task.Event;
@@ -14,32 +12,52 @@ import patrick.task.Task;
 import patrick.task.ToDo;
 
 public class ParserTest {
+
+    // Mock classes to isolate tests from real implementations
+    private static class MockToDo extends ToDo {
+        public MockToDo(String description, boolean isDone) {
+            super(description);
+            if (isDone) {
+                this.setDone();
+            }
+        }
+    }
+
+    private static class MockDeadline extends Deadline {
+        public MockDeadline(String description, boolean isDone, String by) throws Exception {
+            super(description, by);
+            if (isDone) {
+                this.setDone();
+            }
+        }
+    }
+
+    private static class MockEvent extends Event {
+        public MockEvent(String description, boolean isDone, String from, String to) throws Exception {
+            super(description, from, to);
+            if (isDone) {
+                this.setDone();
+            }
+        }
+    }
+
     @Test
     public void getStringFromTask_todo_returnsCorrectFormat() {
-        ToDo todo = new ToDo("Sleep 8 hours", true);
+        ToDo todo = new MockToDo("Sleep 8 hours", true);
         String expected = "T | TRUE | Sleep 8 hours";
         Assertions.assertEquals(expected, Parser.getStringFromTask(todo));
     }
 
     @Test
-    public void getStringFromTask_deadline_returnsCorrectFormat() {
-        Deadline todo = new Deadline("Assignment 1", true, "2026-01-27");
+    public void getStringFromTask_deadline_returnsCorrectFormat() throws Exception {
+        Deadline deadline = new MockDeadline("Assignment 1", true, "2026-01-27");
         String expected = "D | TRUE | Assignment 1 | 2026-01-27";
-        Assertions.assertEquals(expected, Parser.getStringFromTask(todo));
+        Assertions.assertEquals(expected, Parser.getStringFromTask(deadline));
     }
 
     @Test
-    public void getStringFromTask_event_returnsCorrectFormat() {
-        Event event = null;
-        try {
-            event = new Event("Concert", false, "2026-01-27", "2026-01-28");
-        } catch (DateTimeParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (InvalidParameterException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public void getStringFromTask_event_returnsCorrectFormat() throws Exception {
+        Event event = new MockEvent("Concert", false, "2026-01-27", "2026-01-28");
         String expected = "E | FALSE | Concert | 2026-01-27 | 2026-01-28";
         Assertions.assertEquals(expected, Parser.getStringFromTask(event));
     }

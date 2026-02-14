@@ -2,7 +2,7 @@
 
 Patrick is a task management chatbot that helps you keep track of your todos, deadlines, and events. It provides a simple command-line interface to add, list, mark as done, delete, and search tasks.
 
-![Product Screenshot](<[Ui.png](https://github.com/tohyzhong/ip/blob/master/docs/Ui.png)>)
+![Product Screenshot](https://github.com/tohyzhong/ip/blob/master/docs/Ui.png?raw=true)
 
 ## Quick Start
 

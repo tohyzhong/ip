@@ -26,6 +26,6 @@
 
 .profile-circle {
     -fx-stroke: #e69bd5;
-    -fx-stroke-width: 2px;
+    -fx-stroke-width: 0px;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 5, 0, 0, 2);
 }

@@ -2,8 +2,6 @@
 
 Patrick is a task management chatbot that helps you keep track of your todos, deadlines, and events. It provides a simple command-line interface to add, list, mark as done, delete, and search tasks.
 
-![Product Screenshot](Ui.png)
-
 ## Quick Start
 
 1. Ensure you have Java 17 or above installed.

@@ -164,19 +164,19 @@ public class TaskList {
             String description = task.getDescription().toLowerCase();
             String[] words = description.split("\\s+");
 
-            boolean matched = false;
+            boolean isMatch = false;
             for (String searchString : searchStringArrayProcessed) {
                 for (String word : words) {
                     if (word.contains(searchString) || TaskList.levenshteinDistance(word, searchString) <= 2) {
-                        matched = true;
+                        isMatch = true;
                         break;
                     }
                 }
-                if (matched) {
+                if (isMatch) {
                     break;
                 }
             }
-            if (matched) {
+            if (isMatch) {
                 count++;
                 str = str + String.format("\n\t%d. %s", i + 1, task);
             }

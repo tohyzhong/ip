@@ -1,10 +1,12 @@
 package patrick.parser;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import patrick.exception.InvalidParameterException;
 import patrick.exception.PatrickException;
 import patrick.task.Deadline;
 import patrick.task.Event;
@@ -28,7 +30,16 @@ public class ParserTest {
 
     @Test
     public void getStringFromTask_event_returnsCorrectFormat() {
-        Event event = new Event("Concert", false, "2026-01-27", "2026-01-28");
+        Event event = null;
+        try {
+            event = new Event("Concert", false, "2026-01-27", "2026-01-28");
+        } catch (DateTimeParseException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (InvalidParameterException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         String expected = "E | FALSE | Concert | 2026-01-27 | 2026-01-28";
         Assertions.assertEquals(expected, Parser.getStringFromTask(event));
     }

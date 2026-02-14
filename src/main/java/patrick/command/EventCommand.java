@@ -43,8 +43,8 @@ public class EventCommand {
         }
 
         userInput = userInput.substring(Constants.EVENT_PREFIX_LENGTH);
-        userInputArray = userInput.split(
-                "\\s+(" + Constants.FROM_SEPARATOR.substring(1) + "|" + Constants.TO_SEPARATOR.substring(1) + ")\\s+");
+        userInputArray = userInput
+                .split("\\s+" + Constants.FROM_SEPARATOR + "\\s+|\\s+" + Constants.TO_SEPARATOR + "\\s+");
 
         if (userInputArray.length < 3) {
             throw new InvalidParameterException(

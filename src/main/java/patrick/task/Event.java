@@ -3,6 +3,8 @@ package patrick.task;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import patrick.exception.InvalidParameterException;
+
 /**
  * Represent a Task with a specific start and end date.
  * Event task includes a description, start and end dates stored as
@@ -19,11 +21,20 @@ public class Event extends Task {
      * @param userInput  The description of the task.
      * @param fromString The specified start date YYYY-MM-DD.
      * @param toString   The specified end date YYYY-MM-DD.
+     * @throws java.time.format.DateTimeParseException If the date strings are not
+     *                                                 in the expected format.
+     * @throws InvalidParameterException               If the end date is before the
+     *                                                 start date.
      */
-    public Event(String userInput, String fromString, String toString) {
+    public Event(String userInput, String fromString, String toString)
+            throws java.time.format.DateTimeParseException, InvalidParameterException {
         super(userInput);
         this.fromDate = LocalDate.parse(fromString);
         this.toDate = LocalDate.parse(toString);
+
+        if (this.toDate.isBefore(this.fromDate)) {
+            throw new InvalidParameterException("End date cannot be before start date.");
+        }
     }
 
     /**
@@ -34,12 +45,21 @@ public class Event extends Task {
      * @param isDone     The completion status of the task.
      * @param fromString The specified start date YYYY-MM-DD.
      * @param toString   The specified end date YYYY-MM-DD.
+     * @throws java.time.format.DateTimeParseException If the date strings are not
+     *                                                 in the expected format.
+     * @throws InvalidParameterException               If the end date is before the
+     *                                                 start date.
      */
-    public Event(String userInput, boolean isDone, String fromString, String toString) {
+    public Event(String userInput, boolean isDone, String fromString, String toString)
+            throws java.time.format.DateTimeParseException, InvalidParameterException {
         super(userInput);
         this.isDone = isDone;
         this.fromDate = LocalDate.parse(fromString);
         this.toDate = LocalDate.parse(toString);
+
+        if (this.toDate.isBefore(this.fromDate)) {
+            throw new InvalidParameterException("End date cannot be before start date.");
+        }
     }
 
     /**

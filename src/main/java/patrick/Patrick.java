@@ -13,7 +13,7 @@ import patrick.task.TaskList;
  * and Command components.
  */
 public class Patrick {
-    public static final String BOT_NAME = "P4Tr1CK";
+    public static final String BOT_NAME = "Patrick";
     private static final String FILEPATH = "./data/tasks.txt";
     private TaskList tasks;
     private Storage storage;
